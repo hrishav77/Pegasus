@@ -35,7 +35,7 @@ function App() {
       <Flex >
       <LeftBox/>
    
-      <Doubtbox username="user" doubts="this is just a variable doubt"/>
+      <Doubtbox username="user" title="doubt title" desc="description"/>
       <Spacer/>
       <Box  w="237px" h="345px">
        <h1>Filter</h1>
