@@ -3,13 +3,14 @@ import AccountPanel from "../components/AccountPanel";
 import RoomPanel from "../components/RoomPanel";
 import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DoubtList from "../components/DoubtList";
 import Overlay from "../components/Overlay";
 // Components Required 
 // 
 
 const DoubtPage = () => {
+    const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
     const [doubts, setDoubts] = useState([
         {
@@ -70,41 +71,14 @@ const DoubtPage = () => {
         
       ]);
 
-    // return ( 
-    //     <div className={styles.doubtspage}>
-    //         <div className={styles.content}>
-    //             <Navbar currentRoomName={currentRoomName}/>
-    //             <div className={styles.doubtpagecontents}>
-    //                 <div className={styles.leftsidebar}>
-    //                     <UserPanel />
-    //                     <RoomsPanel rooms={rooms} navRoom={(x) => setCurrentRoom(x)}/>
-    //                 </div>
-    //                 {!postState ? <div className={styles.centrebar}>
-    //                     <SearchTool />
-    //                     <DoubtList roomID={currentRoom} doubts={doubts} buttonBarVisible={true}/>
-    //                     </div> : <div className={styles.centrebar}>
-    //                     <DoubtBox />
-    //                     </div>}
-    //                 <div className={styles.rightsidebar}>
-    //                     <FiltersPanel applyFilter={(x, y, z) => applyFilter(x, y, z)}/>
-    //                     <Button
-    //                     buttonText={!postState ? "Ask Doubt" : "Back"}
-    //                     logoutButtonPadding="6px 20px"
-    //                     logoutButtonOverflow="unset"
-    //                     logoutButtonAlignItems="flex-start"
-    //                     logoutButtonJustifyContent="flex-start"
-    //                     buttonTextFontSize="24px"
-    //                     onClick={() => setPostState(!postState)}
-    //                     />
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    //  );
+    useEffect(() => {
+      alert();
+    }, []);
+
     return (
         <div className="doubtpage">
             <div className={styles.content}>
-                <Navbar />
+                <Navbar room={currentRoom.name}/>
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
                         <AccountPanel />
