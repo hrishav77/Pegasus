@@ -2,6 +2,7 @@ import { Flex, Spacer, Text,Button ,Heading} from '@chakra-ui/react'
 
 
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import Box from './Box'
 let curr_dt = new Date()
@@ -17,7 +18,9 @@ export default function Doubtbox(props) {
     <Text fontSize="xl" fontWeight="600">{props.title}</Text>
     <Text>{props.desc}</Text>
     <Button borderRadius="10px" variant="outline"><img src="../star.svg" alt="star" width="20px"/></Button>
-    <Button borderRadius="10px" variant="outline" ml="10px">Solutions</Button>
+    <Button borderRadius="10px" variant="outline" ml="10px">
+      <Link to="/solutionpage">Solutions</Link>
+      </Button>
     </Box>
   )
 }
