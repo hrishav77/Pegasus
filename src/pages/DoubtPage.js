@@ -72,7 +72,7 @@ const DoubtPage = () => {
       ]);
 
     useEffect(() => {
-      alert();
+      
     }, []);
 
     return (
