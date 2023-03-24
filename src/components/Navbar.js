@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Navbar(props) {
   return (
-    <Flex as="nav" p="10px" alignItems="center" bg="#334756" color="white">
+    <Flex as="nav" p="10px" alignItems="center" bg="#334756" color="white" width="100%">
     <Heading>Website name</Heading>
     <Text fontSize="3xl" fontFamily="Quicksand" fontWeight="400" ml="28%">{props.room}</Text>
     <Spacer/> 

@@ -4,7 +4,6 @@ import Box from './components/Box';
 import LeftBox from './components/LeftBox';
 import { ChakraProvider ,extendTheme, Flex, Spacer} from '@chakra-ui/react';
 import Navbar from './components/Navbar';
-import Doubtbox from './components/Doubtbox';
 
 const theme = extendTheme({
   styles: {
@@ -30,7 +29,7 @@ function App() {
       <Flex >
       <LeftBox/>
    
-      <Doubtbox doubts="hhiasd" username="user"/>
+
       <Spacer/>
       <Box  w="237px" h="345px">
        <h1>Filter</h1>
