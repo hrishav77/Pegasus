@@ -6,6 +6,7 @@ import styles from "./DoubtPage.module.css";
 import { useState, useEffect } from "react";
 import DoubtList from "../components/DoubtList";
 import Overlay from "../components/Overlay";
+import FilterPanel from "../components/FilterPanel";
 // Components Required 
 // 
 
@@ -89,6 +90,7 @@ const DoubtPage = () => {
                         <DoubtList doubts={doubts}/>
                     </div>
                     <div className={styles.rightsidebar}>
+                        <FilterPanel/>
                         <Overlay/>
                     </div>
                 </div>
