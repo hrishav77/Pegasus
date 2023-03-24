@@ -4,7 +4,7 @@ import Box from './components/Box';
 import LeftBox from './components/LeftBox';
 import { ChakraProvider ,extendTheme, Flex, Spacer} from '@chakra-ui/react';
 import Navbar from './components/Navbar';
-import DoubtPage from './pages/DoubtPage';
+import Doubtbox from './components/Doubtbox';
 
 const theme = extendTheme({
   styles: {
@@ -38,7 +38,7 @@ function App() {
       </Flex>
       </>}/>
       
-      <Route path="/doubtpage" element={<DoubtPage />}/>
+    
     </Routes>
     </ChakraProvider>
     </div>
