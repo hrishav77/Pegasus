@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react';
 import styles from "./AccountPanel.module.css";
 
 const AccountPanel = () => {

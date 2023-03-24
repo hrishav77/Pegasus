@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 import AccountPanel from "../components/AccountPanel";
 import RoomPanel from "../components/RoomPanel";
+import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
 import { useState } from "react";
 // Components Required 
@@ -46,16 +47,15 @@ const DoubtPage = () => {
                 <Navbar />
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
-                        {/* THIS IHIUefh
-                        iusdhfiuhwaoiufh */}
                         <AccountPanel />
                         <RoomPanel rooms={rooms}/>
                     </div>
                     <div className={styles.centresidebar}>
-                        jqdjihwuohpefphefwphqwpef
+                        <SearchTool />
+
                     </div>
                     <div className={styles.rightsidebar}>
-                        mwdouhiuhphufeppefwqp
+                        
                     </div>
                 </div>
             </div>

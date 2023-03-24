@@ -1,4 +1,4 @@
-//import AuthWidget from "../components/AuthWidget";
+import AuthWidget from "../components/AuthWidget";
 import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
@@ -10,7 +10,7 @@ const LoginPage = () => {
         <div className={styles.apptitle}>Querious is an app for doubts.</div>
       </div>
       <div className={styles.rightsidebar}>
-        {/* <AuthWidget /> */}
+        <AuthWidget />
       </div>
     </div>
   </div>);
