@@ -1,5 +1,6 @@
 import { Button, Flex, Heading, HStack, Spacer, Text } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar(props) {
@@ -10,7 +11,9 @@ export default function Navbar(props) {
     <Spacer/> 
     <HStack spacing="10px">
     <Button bg="#00141B" borderRadius="10px" _hover={{ bg: '#5b6166' }}>Online Users</Button>
-    <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}}>Logout</Button>
+    <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}}>
+      <Link to="/login"> Logout</Link>
+      </Button>
     </HStack>
     </Flex>
   )
