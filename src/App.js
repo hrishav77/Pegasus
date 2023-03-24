@@ -32,19 +32,7 @@ function App() {
       <ChakraProvider theme={theme}>
       <Routes>
       {/* first route */}
-      <Route path='/' 
-      element={<>
-      <Navbar room={currentRoom}/>
-      <Flex >
-      <LeftBox/>
-      
-      <Spacer/>
-      <Box  w="400px" h="345px">
-       <h1>Filter</h1>
-      </Box>
-      </Flex>
-      </>}/>
-      
+      <Route path='/' element={<LoginPage/>}/>
       <Route path="/doubtpage" element={<DoubtPage />}/>    
       <Route path="/login" element={<LoginPage/>}/> 
       <Route path="/account" element={<AccountPage />}/> 
