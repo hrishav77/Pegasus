@@ -4,11 +4,70 @@ import RoomPanel from "../components/RoomPanel";
 import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
 import { useState } from "react";
+import DoubtList from "../components/DoubtList";
 // Components Required 
 // 
 
 const DoubtPage = () => {
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+    const [doubts, setDoubts] = useState([
+        {
+          doubtID: 25,
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 22,
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "aryan",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 22,
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "aryan",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+            doubtID: 25,
+            title: "TITLEEIJJEI",
+            body: "BODYIHIDSSHO",
+            userID: "Amal",
+            date: "Today",
+            doubtDetail: "DETAIL DETAILS"
+          },
+          {
+            doubtID: 22,
+            title: "TITLEEIJJEI",
+            body: "BODYIHIDSSHO",
+            userID: "aryan",
+            date: "Today",
+            doubtDetail: "DETAIL DETAILS"
+          },      {
+            doubtID: 25,
+            title: "TITLEEIJJEI",
+            body: "BODYIHIDSSHO",
+            userID: "Amal",
+            date: "Today",
+            doubtDetail: "DETAIL DETAILS"
+          },
+          {
+            doubtID: 22,
+            title: "TITLEEIJJEI",
+            body: "BODYIHIDSSHO",
+            userID: "aryan",
+            date: "Today",
+            doubtDetail: "DETAIL DETAILS"
+          }
+        
+      ]);
 
     // return ( 
     //     <div className={styles.doubtspage}>
@@ -51,8 +110,8 @@ const DoubtPage = () => {
                         <RoomPanel rooms={rooms}/>
                     </div>
                     <div className={styles.centresidebar}>
-                        <SearchTool />
-
+                        <SearchTool/>
+                        {/* <DoubtList doubts={doubts}/> */}
                     </div>
                     <div className={styles.rightsidebar}>
                         

@@ -4,11 +4,12 @@ import Box from './components/Box';
 import LeftBox from './components/LeftBox';
 import { ChakraProvider ,extendTheme, Flex, Spacer} from '@chakra-ui/react';
 import Navbar from './components/Navbar';
-import Doubtbox from './components/Doubtbox';
 import DoubtPage from './pages/DoubtPage';
 import LoginPage from './pages/LoginPage';
 import AccountPage from './pages/AccountPage';
 import SolutionPage from './pages/SolutionPage';
+
+import DoubtList from './components/DoubtList';
 
 
 const theme = extendTheme({
@@ -24,6 +25,7 @@ const theme = extendTheme({
 const currentRoom="current room";
 
 function App() {
+
   return (
     <div>
       <ChakraProvider theme={theme}>
@@ -34,10 +36,9 @@ function App() {
       <Navbar room={currentRoom}/>
       <Flex >
       <LeftBox/>
-   
-      <Doubtbox username="user" title="doubt title" desc="description"/>
+      
       <Spacer/>
-      <Box  w="237px" h="345px">
+      <Box  w="400px" h="345px">
        <h1>Filter</h1>
       </Box>
       </Flex>

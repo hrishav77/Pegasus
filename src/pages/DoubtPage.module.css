@@ -27,5 +27,9 @@
     flex-grow: 0;
 }
 .centresidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
     flex-grow: 1;
+    overflow: scroll;
 }
