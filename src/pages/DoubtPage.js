@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar"
+import AccountPanel from "../components/AccountPanel";
 import styles from "./DoubtPage.module.css";
 // Components Required 
 // 
@@ -42,6 +43,7 @@ const DoubtPage = () => {
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
                         THIS IHIUefhiusdhfiuhwaoiufh
+                        <AccountPanel />
                     </div>
                     <div className={styles.centresidebar}>
                         jqdjihwuohpefphefwphqwpef
