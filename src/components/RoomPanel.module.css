@@ -1,13 +1,13 @@
-.accountpanel {
+.roompanel {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding: 20px;
-    gap: 5px;
+    padding: 5px;
+    gap: 2px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.8);
     
 }
-.usernameSpan {
+.roompanelitem {
     
 }

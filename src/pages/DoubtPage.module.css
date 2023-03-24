@@ -3,7 +3,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column nowrap;   
 }
 .doubtpagecontent {
     display: flex;
@@ -11,19 +11,21 @@
     align-items: stretch;
     padding: 5px;
     gap: 5px;
-    background-color: black;
     height: 100%;
+    background-color: turquoise;
 }
 .leftsidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: 200px;
+    gap: 5px;
     flex-grow: 0;
-    background-color: red;
-
 }
 .rightsidebar {
+    width: 200px;
     flex-grow: 0;
-    background-color: blue;
 }
 .centresidebar {
     flex-grow: 1;
-    background-color: green;;
 }

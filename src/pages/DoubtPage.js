@@ -1,10 +1,14 @@
 import Navbar from "../components/Navbar"
 import AccountPanel from "../components/AccountPanel";
+import RoomPanel from "../components/RoomPanel";
 import styles from "./DoubtPage.module.css";
+import { useState } from "react";
 // Components Required 
 // 
 
 const DoubtPage = () => {
+    const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+
     // return ( 
     //     <div className={styles.doubtspage}>
     //         <div className={styles.content}>
@@ -42,8 +46,10 @@ const DoubtPage = () => {
                 <Navbar />
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
-                        THIS IHIUefhiusdhfiuhwaoiufh
+                        {/* THIS IHIUefh
+                        iusdhfiuhwaoiufh */}
                         <AccountPanel />
+                        <RoomPanel rooms={rooms}/>
                     </div>
                     <div className={styles.centresidebar}>
                         jqdjihwuohpefphefwphqwpef
