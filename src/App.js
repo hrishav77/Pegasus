@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Doubtbox from './components/Doubtbox';
 import DoubtPage from './pages/DoubtPage';
 import LoginPage from './pages/LoginPage';
+import AccountPage from './pages/AccountPage';
 
 const theme = extendTheme({
   styles: {
@@ -41,7 +42,9 @@ function App() {
       </>}/>
       
       <Route path="/doubtpage" element={<DoubtPage />}/>    
-      <Route path="/login" element={<LoginPage/>}/>    
+      <Route path="/login" element={<LoginPage/>}/> 
+      <Route path="/account" element={<AccountPage />}/> 
+      <Route path="/solutionpage" element={<SolutionPage />}/>   
     </Routes>
     </ChakraProvider>
     </div>

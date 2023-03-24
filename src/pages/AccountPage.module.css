@@ -1,0 +1,25 @@
+.content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.doubtpagecontent {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    padding: 5px;
+    gap: 5px;
+    background-color: black;
+    height: 100%;
+}
+.leftsidebar {
+    flex-grow: 0;
+    background-color: red;
+
+}
+.rightsidebar {
+    flex-grow: 1;
+    background-color: green;
+}
