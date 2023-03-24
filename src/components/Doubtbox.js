@@ -1,6 +1,6 @@
 import { Flex, Spacer, Text,Button} from '@chakra-ui/react'
 import React from 'react'
-import { useState } from 'react';
+
 
 import { Link } from 'react-router-dom';
 
@@ -8,20 +8,20 @@ import Box from './Box'
 
 
 let curr_dt = new Date()
-let date = curr_dt.getFullYear() + "-" + (curr_dt.getMonth() + 1) + "-" + curr_dt.getDate() + " " + curr_dt.getHours() + ":" + curr_dt.getMinutes() + ":" + curr_dt.getSeconds();
+let date = curr_dt.getDay() + "/" + (curr_dt.getMonth() + 1) + "/" + curr_dt.getFullYear() + " " + curr_dt.getHours() + ":" + curr_dt.getMinutes() ;
 export default function Doubtbox(props) {
 
   
   return (
     <Box w="100%" h="fit-content">
-        <Flex fontSize="3xl">
+        <Flex fontSize="2xl">
         {props.userID}
         <Spacer/>
-        {date}
+        <Text fontSize="lg">{date}</Text>
         </Flex>  
     <Text fontSize="xl" fontWeight="600">{props.title}</Text>
     <Text>{props.body}</Text>
-    <Button borderRadius="10px" variant="outline"><img src="../star.svg" alt="star" width="20px"/></Button>
+    <Button borderRadius="10px" variant="outline"><i class="fi fi-rr-star"></i></Button>
     <Button borderRadius="10px" variant="outline" ml="10px">
       <Link to="/solutionpage">Solutions</Link>
       </Button>
