@@ -12,6 +12,7 @@ import SolutionPage from './pages/SolutionPage';
 import DoubtList from './components/DoubtList';
 
 
+
 const theme = extendTheme({
   styles: {
     global: () => ({

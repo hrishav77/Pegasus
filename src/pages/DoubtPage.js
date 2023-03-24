@@ -5,6 +5,7 @@ import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
 import { useState } from "react";
 import DoubtList from "../components/DoubtList";
+import Overlay from "../components/Overlay";
 // Components Required 
 // 
 
@@ -114,7 +115,7 @@ const DoubtPage = () => {
                         <DoubtList doubts={doubts}/>
                     </div>
                     <div className={styles.rightsidebar}>
-
+                        <Overlay/>
                     </div>
                 </div>
             </div>
