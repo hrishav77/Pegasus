@@ -10,7 +10,7 @@ export default function Navbar(props) {
     <Spacer/> 
     <HStack spacing="10px">
     <Button bg="#00141B" borderRadius="10px" _hover={{ bg: '#5b6166' }}>Online Users</Button>
-    <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166' }}>Logout</Button>
+    <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}}>Logout</Button>
     </HStack>
     </Flex>
   )
