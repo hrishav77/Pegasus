@@ -28,21 +28,21 @@ import {
             <form >
         <div className="items">
             <div className="item">
-            <label>title</label>
-            <input type="text" />
+            
+            <input type="text" placeholder='Enter Title'/>
             </div>
             <div className="item">
-            <label>Topic</label>
-            <input type="text" min='0.01' step='0.01'/>
+   
+            <input type="text" placeholder='Enter Topic'/>
             </div>
     
             <div className="item">
-            <label>Subtopic</label>
-            <input type="text" min="2022-12-31" max="2023-5-2-31" />
+          
+            <input type="text" placeholder='Enter Subtopic' />
             </div>
             <div className="item">
-            <label>Doubt description</label>
-            <textarea></textarea>
+            
+            <textarea placeholder='Doubt description'></textarea>
             </div>
         
         </div>
@@ -55,7 +55,7 @@ import {
               <Button colorScheme='blue' mr={3} onClick={onClose}>
                 Close
               </Button>
-              <Button variant='ghost'>Post</Button>
+              <Button colorScheme="blue" mr={3}>Post</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
