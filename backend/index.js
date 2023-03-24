@@ -30,7 +30,4 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(error);
     });
 
-app.listen(process.env.PORT, () => {
-    
-})
 
