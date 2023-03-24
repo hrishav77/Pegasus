@@ -8,6 +8,8 @@ import Doubtbox from './components/Doubtbox';
 import DoubtPage from './pages/DoubtPage';
 import LoginPage from './pages/LoginPage';
 import AccountPage from './pages/AccountPage';
+import SolutionPage from './pages/SolutionPage';
+
 
 const theme = extendTheme({
   styles: {
