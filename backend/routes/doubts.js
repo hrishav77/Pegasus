@@ -8,30 +8,40 @@ router.get('/:roomID/unstarreddoubts/:username', async (req, res) =>{
     const roomID = req.params.roomID;
     const user = await User.find({username: req.params.username});
     try{
-        const doubt = await Doubt.find({roomID: roomID});
-        if (user.starredDoubts){
-            const x = user.starredDoubts;
-            const unstarreddoubts = [];
-            const y = x.filter((item) => {
-                return item.roomID == roomID;
-            });
-            console.log(y);
-            const z = [];
-            for (i=0; i < y.length; i++){
-                let doubt1 = await Doubt.findOne({roomID: y[i].roomID, doubtID: y[i].doubtID});
-                z.push(doubt1);
-            };
-            for(let j = 0; j < doubt.length; j++){
-                if (doubt[i] in z){
-                    continue;
-                }else{
-                    unstarreddoubts.push(doubt[i]);
-                }
+        // const doubt = await Doubt.find({roomID: roomID});
+        // if (user.starredDoubts){
+        //     const x = user.starredDoubts;
+        //     const unstarreddoubts = [];
+        //     const y = x.filter((item) => {
+        //         return item.roomID == roomID;
+        //     });
+        //     console.log(y);
+        //     const z = [];
+        //     for (i=0; i < y.length; i++){
+        //         let doubt1 = await Doubt.findOne({roomID: y[i].roomID, doubtID: y[i].doubtID}).sort({date: -1});
+        //         z.push(doubt1);
+        //     };
+        //     for(let j = 0; j < doubt.length; j++){
+        //         if (doubt[i] in z){
+        //             continue;
+        //         }else{
+        //             unstarreddoubts.push(doubt[i]);
+        //         }
+        //     }
+        const starredDoubts = user.starredDoubts;
+        const doubts = await Doubts.find({roomID});
+        const sDoubts = starredDoubts.filter((doubt) => {
+            return doubt.roomID == roomID;
+        })
+        for(i = 0; i < doubts.length; i++){
+            if(sDoubts.find(doubt => doubt.doubtID == doubts[i].doubtID)){
+                doubts[i].starred = true;
+            }else{
+                continue;
             }
-            res.status(200).json(unstarreddoubts);
-        }else {
-            res.status(200).json(doubt);
         }
+        res.status(200).json(doubts);
+         
        
     }catch (error){
         res.status(400).json({error: error.msg});
@@ -177,54 +187,9 @@ router.get('/:roomID/starredDoubts/:username', async (req, res) => {
     }
 });
 
-// router.get(':roomID/unstarreddoubts/:username', async (req, res) => {
-//     //get the unstarred doubts in a room for a particular user
-//     const username = req.params.username;
-//     const user = await User.findOne({username});
-//     const roomID = req.params.roomID;
-//     try{
-//         const x = user.starredDoubts;
-//         const y = x.filter((item) => {
-//             return (item.roomID = roomID);
-//         });
-//         const z = [];
-//         for (i=0; i < y.length; i++){
-//             let doubt = await Doubt.findOne({roomID: y[i].roomID, doubtID: y[i].doubtID});
-//             z.push(doubt);
-//         }
-//         res.status(200).json(z);
-//     }catch (error){
-//         res.status(400).json({error: error.msg});
-//     }
-// })
-
-// router.get('/:roomID/filter', async (req, res) => {
-//     const roomID = req.params.roomID;
-//     const {query} = req.body.query;
-//     try{
-//         let x = await Doubt.find({topic: query, roomID});
-//         if (!x) {
-//             x = await Doubt.find({subtopic: query, roomID});
-//             if (!x){
-//                 const user = await User.findOne({username: query});
-//                 const userID = user.userID;
-//                 x = await Doubt.find({userID, roomID});
-//                 if(x){
-//                     res.status(200).json(x);
-//                 }else{
-//                     res.send('No results found.');
-//                 }
-                
-//             }else{
-//                 res.status(200).json(x);
-//             }
-//         }else{
-//             res.status(200).json(x);
-//         }
-//     }catch(error){
-//         res.status(400).json({error: error.msg});
-//         console.log(error);
-//     }
-// })
+router.get('/getall', async (req, res)=> {
+    const doubt = await Doubt.find().sort({doubtID: -1});
+    res.json(doubt);
+})
 
 module.exports = router;

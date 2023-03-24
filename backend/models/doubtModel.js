@@ -11,7 +11,8 @@ const doubtSchema = new Schema({
     date: {type: Date, default: Date.now},
     roomID: {type: Number, required: true},
     doubtID: {type: Number, required: true},
-    image: {type: String}
+    image: {type: String},
+    starred: {type: Boolean, default: false}
 });
 
 doubtSchema.index({roomID: 1, doubtID: 1}, {unique: true});
