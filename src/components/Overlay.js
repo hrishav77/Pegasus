@@ -10,9 +10,38 @@ import {
   import { useDisclosure } from '@chakra-ui/react'
   import { Button } from '@chakra-ui/react'
   import "./Overlay.css"
+  import { useState } from 'react'
 
-  export default function Overlay() {
+  export default function Overlay(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [title,setTitle]=useState("")
+    const [topic,setTopic]=useState("");
+    const [subTopic,setSubtopic]=useState("");
+    const [body,setBody]=useState("");
+    const TopicHandler=(event)=>{
+      setTopic(event.target.value);
+    }
+    const TitleHandler=(event)=>{
+      setTitle(event.target.value);
+      console.log(event.target.value);
+    }
+    const bodyHandler=(event)=>{
+      setBody(event.target.value);
+    }
+    const subtopicHandler=(event)=>{
+      setSubtopic(event.target.value);
+    }
+    const postHandler=(event)=>{
+      const data={
+            doubtID: 23,
+            title: title,
+            body: body,
+            userID: "aryan",
+            date: "Today",
+            doubtDetail: "DETAIL DETAILS"
+      };
+      props.setDoubts(data);
+    }
     return (
       <>
         <Button onClick={onOpen}>
@@ -29,20 +58,20 @@ import {
         <div className="items">
             <div className="item">
             
-            <input type="text" placeholder='Enter Title'/>
+            <input type="text" placeholder='Enter Title'  onChange={TitleHandler}/>
             </div>
             <div className="item">
    
-            <input type="text" placeholder='Enter Topic'/>
+            <input type="text" placeholder='Enter Topic'  onChange={TopicHandler}/>
             </div>
     
             <div className="item">
           
-            <input type="text" placeholder='Enter Subtopic' />
+            <input type="text" placeholder='Enter Subtopic'  onChange={subtopicHandler}/>
             </div>
             <div className="item">
             
-            <textarea placeholder='Doubt description'></textarea>
+            <textarea placeholder='Doubt description' onChange={bodyHandler}></textarea>
             </div>
         
         </div>
@@ -55,7 +84,7 @@ import {
               <Button colorScheme='blue' mr={3} onClick={onClose}>
                 Close
               </Button>
-              <Button colorScheme="blue" mr={3}>Post</Button>
+              <Button colorScheme="blue" mr={3} onClick={postHandler}>Post</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

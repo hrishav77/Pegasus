@@ -29,48 +29,16 @@ const DoubtPage = () => {
           userID: "aryan",
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 22,
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "aryan",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-            doubtID: 25,
-            title: "TITLEEIJJEI",
-            body: "BODYIHIDSSHO",
-            userID: "Amal",
-            date: "Today",
-            doubtDetail: "DETAIL DETAILS"
-          },
-          {
-            doubtID: 22,
-            title: "TITLEEIJJEI",
-            body: "BODYIHIDSSHO",
-            userID: "aryan",
-            date: "Today",
-            doubtDetail: "DETAIL DETAILS"
-          },      {
-            doubtID: 25,
-            title: "TITLEEIJJEI",
-            body: "BODYIHIDSSHO",
-            userID: "Amal",
-            date: "Today",
-            doubtDetail: "DETAIL DETAILS"
-          },
-          {
-            doubtID: 22,
-            title: "TITLEEIJJEI",
-            body: "BODYIHIDSSHO",
-            userID: "aryan",
-            date: "Today",
-            doubtDetail: "DETAIL DETAILS"
-          }
+        }
         
       ]);
+     
+        const doubthandler=(info)=>{
+     
+          setDoubts(doubts=>{
+            return([info,...doubts])
+          })
+        }
 
     useEffect(() => {
       
@@ -91,7 +59,7 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel/>
-                        <Overlay/>
+                        <Overlay setDoubts={doubthandler}/>
                     </div>
                 </div>
             </div>
