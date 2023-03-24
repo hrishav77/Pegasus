@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+:root{
+    background: linear-gradient(116.98deg, #DDF9E1 4.38%, rgba(110, 190, 201, 0.36) 47.68%, rgba(161, 180, 249, 0.89) 92.26%);
+    mix-blend-mode: normal;
+
+}
