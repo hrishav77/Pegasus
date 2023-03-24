@@ -20,7 +20,7 @@ export default function FilterPanel() {
                     <input type="text" />
                 </div>
             </div>
-            <Button bg="#00141B" borderRadius="10px" _hover={{ bg: '#5b6166' }} color="white" m='5' mt='0'>Search &gt;</Button>
+            <Button bg="#00141B" borderRadius="10px" _hover={{ bg: '#5b6166' }} color="white" m='5' mt='0'>Search </Button>
             
             <label className='label'><input type="checkbox" name='starredDoubts' className='checkBox' />Show Starred Doubts</label>
         </div>
