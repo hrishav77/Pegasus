@@ -7,10 +7,12 @@ import { useState, useEffect } from "react";
 import DoubtList from "../components/DoubtList";
 import Overlay from "../components/Overlay";
 import FilterPanel from "../components/FilterPanel";
-// Components Required 
-// 
+
+const settings = require('../settings');
+
 
 const DoubtPage = () => {
+    const backend = settings.backend;
     const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
     const [doubts, setDoubts] = useState([
@@ -40,9 +42,32 @@ const DoubtPage = () => {
           })
         }
 
+    const loadDoubtsFromRoom = (roomID) => {
+      // Make an api call here and put the dictionary in x
+      // setDoubts(x);
+    };
+
     useEffect(() => {
-      
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has("room")) {
+        const x = parseInt(urlParams.get("room"));
+        let obj = rooms.find(o => o.roomID === x);
+        setCurrentRoom({x, obj});
+        console.log(x);
+      }
+      else {
+        // loadDoubtsFromRoom(1);
+        // let obj = rooms.find(o => o.roomID === 1).roomTitle;
+        // setCurrentRoomName(obj);
+        // navigating to room 1
+      }
     }, []);
+
+    useEffect(() => {
+      let obj = rooms.find(o => o.roomID === currentRoom.roomID);
+      setCurrentRoom(obj);
+      loadDoubtsFromRoom(currentRoom.roomID);
+    }, [currentRoom]);
 
     return (
         <div className="doubtpage">
