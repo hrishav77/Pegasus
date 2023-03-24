@@ -22,7 +22,7 @@
   .searchbutton,
   .searchtool {
     align-self: stretch;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     padding: 5px;
     align-items: center;

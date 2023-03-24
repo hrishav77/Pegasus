@@ -111,10 +111,10 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
-                        {/* <DoubtList doubts={doubts}/> */}
+                        <DoubtList doubts={doubts}/>
                     </div>
                     <div className={styles.rightsidebar}>
-                        
+
                     </div>
                 </div>
             </div>
