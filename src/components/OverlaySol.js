@@ -24,7 +24,9 @@ import {
   
     const postHandler=(event)=>{
       const data={
-            //give the data 
+        doubtID: 25,
+        body: body,
+        username: props.username
       };
       props.postSolution(data);
     }
