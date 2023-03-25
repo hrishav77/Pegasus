@@ -41,7 +41,7 @@ export default function FilterPanel({ onFilter }) {
             </div>
             <Button bg="#00141B" borderRadius="10px" _hover={{ bg: '#5b6166' }} color="white" m='5' mt='0' onClick={applyFilter}>Search </Button>
             
-            <label className='label'><input type="checkbox" name='starredDoubts' className='checkBox' />Show Starred Doubts</label>
+            <label className='label' ><input type="checkbox" name='starredDoubts' className='checkBox' />Show Starred Doubts</label>
         </div>
     )
 }

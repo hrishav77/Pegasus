@@ -46,8 +46,8 @@ import {
     }
     return (
       <>
-        <Button onClick={onOpen}>
-            Post doubts
+        <Button onClick={onOpen} >
+           <div className='but'> Post doubts</div>
         </Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>

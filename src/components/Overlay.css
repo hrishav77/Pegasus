@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 .items {
     display: flex;
     flex-wrap: wrap;
@@ -44,4 +45,8 @@ input::file-selector-button {
   border-radius: 3px;
   background-color: rgba(168, 209, 246, 0.932);
   border-radius: 10px;
+}
+.but{
+  font-family: 'Crimson Text', serif;
+  font-weight: 200;
 }
