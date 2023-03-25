@@ -11,7 +11,13 @@ router.post('/roomID/:doubtID', async (req, res) => {
     const doubtID = req.params.doubtID;
     try{
         const solutions = await Solution.find({roomID: roomID, doubtID: doubtID});
-        res.status(200).json(solutions);
+        let x =[];
+        for (let i = 0; i < solutions.length; i++){
+            let user = await User.findOne({userID: solutions[i].userID});
+            solutions[i].toObject().username = user.username;
+            x.push(solutions[i]);
+        }
+        res.status(200).json(x);
     }catch(error){
         res.status(400).json({error: error.msg});
         console.log(error);
