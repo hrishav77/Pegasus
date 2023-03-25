@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar"
 import styles from "./SolutionPage.module.css";
 
+const settings = require("../settings");
+
 const SolutionPage = () => {
     return ( <div className="solutionpage">
         <div className={styles.content}>

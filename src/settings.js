@@ -1,5 +1,6 @@
-const loser = "you";
+const appName = "Querious";
 const backend = "http://localhost:5000";
+const rooms = [{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}];
 
 const getToken = () => {
     let token = JSON.parse(localStorage.getItem("userInfo")).token;
@@ -13,4 +14,4 @@ const getToken = () => {
     return config;
   };
 
-module.exports = { loser, backend, getToken };
+module.exports = { backend, appName, rooms, getToken };

@@ -5,6 +5,7 @@ import RoomPanel from "../components/RoomPanel";
 import { useState, useEffect } from "react";
 import FilterPanel from "../components/FilterPanel";
 import DoubtTabs from "../components/DoubtTabs";
+import HelpBox from "../components/HelpBox";
 
 const AccountPage = () => {
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
@@ -22,7 +23,8 @@ const AccountPage = () => {
                     <DoubtTabs/>
                 </div>
                 <div className={styles.rightsidebar}>
-                    <FilterPanel/>
+                    {/* <FilterPanel/> */}
+                    <HelpBox />
                 </div>
             </div>
         </div>

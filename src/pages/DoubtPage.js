@@ -13,7 +13,8 @@ const settings = require('../settings');
 const DoubtPage = () => {
     const backend = settings.backend;
     const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
-    const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+    //const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+    const rooms = settings.rooms;
     const [doubts, setDoubts] = useState([
         {
           doubtID: 25,
