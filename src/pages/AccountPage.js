@@ -8,7 +8,10 @@ import FilterPanel from "../components/FilterPanel";
 import DoubtTabs from "../components/DoubtTabs";
 import HelpBox from "../components/HelpBox";
 
+const settings = require("../settings");
+
 const AccountPage = () => {
+    const backend = settings.backend;
     const nav = useNavigate();
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
     const [yourDoubts, setYourDoubts] = useState([
@@ -60,8 +63,20 @@ const AccountPage = () => {
         nav("/doubtpage/?room="+x);
     }
 
-    useEffect(() => {
+    const loadDoubts = async () => {
+        let url = backend+'/api/doubts/filters';
+        let config = settings.getToken();
+        let username = settings.getUsername();
+        // config.body = JSON.stringify({
+        //      sender: username
+        // });
+        let x = await fetch(url, config);
+        console.log(url);
+        setYourDoubts(x);
+    };
 
+    useEffect(() => {
+        loadDoubts();
     }, []);
 
     return ( <div className="accountpage">

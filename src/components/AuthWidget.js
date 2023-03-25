@@ -31,7 +31,7 @@ const AuthWidget = () => {
         console.log(x);
         localStorage.setItem('userInfo', JSON.stringify(x));
         console.log('request sent');
-        nav("/");
+        nav("/account");
       } catch(err) {
         //use toast later 
         console.log(err);
@@ -51,7 +51,7 @@ const AuthWidget = () => {
         console.log(x)
         localStorage.setItem('userInfo', JSON.stringify(x));
         console.log('request sent');
-        nav("/");
+        nav("/account");
       } catch(error) {
         //use toast later 
         console.log(error);
