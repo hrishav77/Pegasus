@@ -16,11 +16,12 @@ const getToken = () => {
 
 const isLoggedIn = () => {
   let x = localStorage.getItem("userInfo") !== null;
-  return true; // change this to x later 
+  return x; //true; // change this to x later 
 };
 
 const getUsername = () => {
-  let x = localStorage.getItem("userInfo")
+  let x = localStorage.getItem("userInfo");
+  x = JSON.parse(x);
   if (x) {
     return x.username;
   }

@@ -1,0 +1,16 @@
+.navbar {
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+
+
+}    
+@media screen and (max-width: 428px) {
+    .appName {
+        display: none;
+    }
+    .buttonBar {
+        display: none;
+    }
+}
