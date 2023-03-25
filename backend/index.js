@@ -8,7 +8,7 @@ const solutionsroutes = require('./routes/solutions');
 const userRoutes = require('./routes/users');
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "*",
         credentials: true
     })
 )
