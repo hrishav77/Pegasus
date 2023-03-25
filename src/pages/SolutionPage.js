@@ -12,7 +12,8 @@ const SolutionPage = () => {
     const nav = useNavigate();
     const rooms =settings.rooms;
     const [username, setUsername] = useState("var user");
-    let x, y;
+    const [roomID, setRoomID] = useState(1);
+    const [doubtID, setDoubtID] = useState(1);
     const [doubt, setDoubt] = useState({});
     const [solutions, setSolutions] = useState([
         // {
@@ -37,9 +38,9 @@ const SolutionPage = () => {
         setSolutions(solution=>{
             return([data,...solution])
         });
-        data.doubtID = y;
-        data.roomID = x;
-        let url = settings.backend+'/api/solutions/'+x.toString()+'/'+y.toString();
+        data.doubtID = doubtID;
+        data.roomID = roomID;
+        let url = settings.backend+'/api/solutions/'+roomID.toString()+'/'+doubtID.toString();
         let config = settings.getToken();
         let username = settings.getUsername();
         config.method = "POST";
@@ -73,8 +74,10 @@ const SolutionPage = () => {
         setUsername(settings.getUsername());
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("room") && urlParams.has("doubt")) {
-            x = parseInt(urlParams.get("room"));
-            y = parseInt(urlParams.get("doubt"));
+            let x = parseInt(urlParams.get("room"));
+            let y = parseInt(urlParams.get("doubt"));
+            setRoomID(x);
+            setDoubtID(y);
             loadSolution(x, y);                 
         } else {
             nav("/");
