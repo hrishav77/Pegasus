@@ -53,7 +53,7 @@ router.post('/getroomdoubts', async (req, res) =>{
         const sDoubts = starredDoubts.filter((doubt) => {
             return doubt.roomID == roomID;
         })
-        for(i = 0; i < doubts.length; i++){
+        for(let i = 0; i < doubts.length; i++){
             if(sDoubts.find(doubt => doubt.doubtID == doubts[i].doubtID)){
                 doubts[i].starred = true;
             }else{

@@ -10,16 +10,27 @@ import Box from './Box'
   @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Bona+Nova&display=swap');
 </style>
 
+const settings = require("../settings");
 
 let curr_dt = new Date()
 let date = curr_dt.getDay() + "/" + (curr_dt.getMonth() + 1) + "/" + curr_dt.getFullYear() + " " + curr_dt.getHours() + ":" + curr_dt.getMinutes() ;
 export default function Doubtbox(props) {
-const [isStarred,SetStarred]=useState(false)
-const starredButton=()=>{
-  SetStarred((prevStarred)=>{
-   return !prevStarred;
-  })
-}
+  const [isStarred,SetStarred]=useState(props.starState);
+  const starredButton = async () => {
+    SetStarred((prevStarred)=>{
+      return !prevStarred;
+    });
+    let url = settings.backend+'/api/doubts/' + (isStarred ? 'starreddoubts' : 'unstardoubt');
+    let config = settings.getToken();
+    let username = settings.getUsername();
+    config.method = "PUT";
+    config.body = JSON.stringify({
+          roomID: props.roomID,
+          doubtID: props.doubtID,
+          username: username,
+    });
+    let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+  }
   
   return (
     <Box w="100%" h="fit-content">

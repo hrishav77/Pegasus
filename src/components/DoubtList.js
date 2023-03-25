@@ -16,6 +16,7 @@ function DoubtList(props) {
             doubtID={doubt.doubtID}
             topic={doubt.topic} 
             subtopic={doubt.subtopic}
+            starState={doubt.starred}
             buttonBarVisible={props.buttonBarVisible}/>
           </div>
       ))}

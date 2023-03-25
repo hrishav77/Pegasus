@@ -20,62 +20,63 @@ const DoubtPage = () => {
     const [username, setUsername] = useState("var user");
     const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
     const [doubts, setDoubts] = useState([
-        {
-          doubtID: 25,
-          topic:"microelectronics",
-          subtopic:"diff amp",
-          title: "differential applifier",
-          body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 21,
-          topic:"microprocc",
-          subtopic:"mod7",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 21,
-          topic:"microprocc",
-          subtopic:"mod7",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 21,
-          topic:"microprocc",
-          subtopic:"mod7",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 21,
-          topic:"microprocc",
-          subtopic:"mod7",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
+        // {
+        //   doubtID: 25,
+        //   topic:"microelectronics",
+        //   subtopic:"diff amp",
+        //   title: "differential applifier",
+        //   body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
+        // {
+        //   doubtID: 21,
+        //   topic:"microprocc",
+        //   subtopic:"mod7",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
+        // {
+        //   doubtID: 21,
+        //   topic:"microprocc",
+        //   subtopic:"mod7",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
+        // {
+        //   doubtID: 21,
+        //   topic:"microprocc",
+        //   subtopic:"mod7",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
+        // {
+        //   doubtID: 21,
+        //   topic:"microprocc",
+        //   subtopic:"mod7",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
     ]);
      
     const doubtHandler=(info)=>{ 
       setDoubts(doubts=>{
       return([info,...doubts])
-      })
+      });
+      
     }
 
     const loadDoubtsFromRoom = async () => {
@@ -91,6 +92,7 @@ const DoubtPage = () => {
       let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
       x = await x.json();
       if (Array.isArray(x)) {
+          console.log(x);
           setDoubts(x);
       }
     };
