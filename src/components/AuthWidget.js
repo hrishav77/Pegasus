@@ -75,9 +75,9 @@ const AuthWidget = () => {
         <span className={styles.username}>Password:</span>
         <input className={styles.usernamefield} id="passwordInput" type="password" />
       </div>
-      <Button buttonText={isSignUp ? 'Sign Up' : 'Login'} onClick={handleSubmit}/>
-      <button className={styles.signupbutton}>
-        <div className={styles.signuptext}>Sign up</div>
+      {/* <Button buttonText={isSignUp ? 'Sign Up' : 'Login'} onClick={handleSubmit}/> */}
+      <button className={styles.signupbutton} onClick={handleSubmit}>
+        <div className={styles.signuptext}>{isSignUp ? 'Sign Up' : 'Login'}</div>
       </button>
       <span className={styles.redirect} onClick={() => setIsSignUp(!isSignUp)}>{isSignUp ? 'Already a member? Login here' : 'New user? Sign up here'}</span>
     </div>
