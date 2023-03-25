@@ -14,4 +14,19 @@ const getToken = () => {
     return config;
   };
 
-module.exports = { backend, appName, rooms, getToken };
+const isLoggedIn = () => {
+  let x = localStorage.getItem("userInfo") !== null;
+  return true; // change this to x later 
+};
+
+const getUsername = () => {
+  let x = localStorage.getItem("userInfo")
+  if (x) {
+    return x.username;
+  }
+  else {
+    return "DEFAULT";
+  }
+}
+
+module.exports = { backend, appName, rooms, getToken, getUsername, isLoggedIn };

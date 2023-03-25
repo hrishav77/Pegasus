@@ -6,21 +6,21 @@ import Overlay from "../components/OverlayPost";
 import OverlaySol from"../components/OverlaySol"
 import RoomPanel from "../components/RoomPanel";
 import styles from "./DoubtPage.module.css";
+import { useState } from "react";
 const settings = require("../settings");
-
-
 
 const SolutionPage = () => {
     const nav = useNavigate();
-    const rooms=settings.rooms;
-    const username="var user"
+    const rooms =settings.rooms;
+    const [username, setUsername] = useState("var user");
+    const [currentDoubt, setCurrentDoubt] = useState({roomID: 1, name: "DEFAULT"});
 
     const roomSwitch = (x) => {
         nav("/doubtpage/?room="+x);
     };
 
     const solutionHandler = () => {
-        
+
     };
 
     return ( <div className="solutionpage">

@@ -13,10 +13,11 @@
     /* border: solid 2px black;
     border-radius: 5px;
     padding: 3px;    */
-    background-color:  rgba(100, 100, 100, 0.2)
+    background-color:  rgba(100, 100, 100, 0.2);
+    cursor: pointer;
 }
 .roompanelitem:active {
-    background-color:  rgba(100, 100, 100, 0.5)
+    background-color:  rgba(100, 100, 100, 0.5);
 }
 .roompanelheader {
     margin-top: 5px;
@@ -31,4 +32,7 @@
 }
 .roompanelitemcurrent {
     background-color: rgba(100, 100, 100, 0.5)
+}
+.roompanelitemcurrent:hover {
+    cursor: pointer;
 }

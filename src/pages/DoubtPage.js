@@ -16,6 +16,7 @@ const DoubtPage = () => {
     const nav = useNavigate();
     const backend = settings.backend;
     const rooms = settings.rooms;
+    const [username, setUsername] = useState("var user");
     const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
     const [doubts, setDoubts] = useState([
         {
@@ -93,12 +94,15 @@ const DoubtPage = () => {
     }
 
     useEffect(() => {
+      if(!settings.isLoggedIn()) {
+        nav("/");
+      }
+      setUsername(settings.getUsername);
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("room")) {
         const x = parseInt(urlParams.get("room"));
         let obj = rooms.find(o => o.roomID === x);
         setCurrentRoom(obj);
-        console.log(x);
       }
       else {
         // navigating to room 1
@@ -109,7 +113,6 @@ const DoubtPage = () => {
       loadDoubtsFromRoom(currentRoom.roomID);
     }, [currentRoom]);
 
-    const username="var user"
     return (
         <div className="doubtpage">
             <div className={styles.content}>
