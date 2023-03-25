@@ -13,8 +13,8 @@ let date = curr_dt.getDay() + "/" + (curr_dt.getMonth() + 1) + "/" + curr_dt.get
 export default function Doubtbox(props) {
 const [isStarred,SetStarred]=useState(false)
 const starredButton=()=>{
-  SetStarred((isStarred)=>{
-    return !isStarred;
+  SetStarred((prevStarred)=>{
+   return !prevStarred;
   })
 }
   

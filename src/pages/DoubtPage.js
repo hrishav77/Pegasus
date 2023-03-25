@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import DoubtList from "../components/DoubtList";
 import Overlay from "../components/OverlayPost";
 import FilterPanel from "../components/FilterPanel";
+import Hamburger from "../components/Hamburger";
 
 const settings = require('../settings');
 
@@ -129,7 +130,9 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
+                        <Hamburger/>
                         <Overlay setDoubts={doubthandler} username={username}/>
+                        
                     </div>
                 </div>
             </div>
