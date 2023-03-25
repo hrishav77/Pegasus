@@ -1,6 +1,11 @@
 const appName = "Querious";
 const backend = "http://localhost:5000";
-const rooms = [{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}];
+const rooms = [
+  {roomID: 1, name: "Microprocessors"}, 
+  {roomID: 2, name: "Microelectronics"},
+  {roomID: 3, name: "Signals and Systems"},
+  {roomID: 4, name: "Control Systems"}
+];
 
 const getToken = () => {
     let token = JSON.parse(localStorage.getItem("userInfo")).token;
