@@ -3,31 +3,11 @@ const Doubt = require('../models/doubtModel');
 const User = require('../models/userModel');  
 const router = express.Router();
 
-router.get('/:roomID/unstarreddoubts/:username', async (req, res) =>{
-    //get unstarred doubts of a particular room
+router.get('/:roomID/:username', async (req, res) =>{
+    //get all doubts of a particular room for a particular user
     const roomID = req.params.roomID;
     const user = await User.find({username: req.params.username});
     try{
-        // const doubt = await Doubt.find({roomID: roomID});
-        // if (user.starredDoubts){
-        //     const x = user.starredDoubts;
-        //     const unstarreddoubts = [];
-        //     const y = x.filter((item) => {
-        //         return item.roomID == roomID;
-        //     });
-        //     console.log(y);
-        //     const z = [];
-        //     for (i=0; i < y.length; i++){
-        //         let doubt1 = await Doubt.findOne({roomID: y[i].roomID, doubtID: y[i].doubtID}).sort({date: -1});
-        //         z.push(doubt1);
-        //     };
-        //     for(let j = 0; j < doubt.length; j++){
-        //         if (doubt[i] in z){
-        //             continue;
-        //         }else{
-        //             unstarreddoubts.push(doubt[i]);
-        //         }
-        //     }
         const starredDoubts = user.starredDoubts;
         const doubts = await Doubts.find({roomID});
         const sDoubts = starredDoubts.filter((doubt) => {
@@ -37,7 +17,7 @@ router.get('/:roomID/unstarreddoubts/:username', async (req, res) =>{
             if(sDoubts.find(doubt => doubt.doubtID == doubts[i].doubtID)){
                 doubts[i].starred = true;
             }else{
-                continue;
+                doubts[i].starred = false;
             }
         }
         res.status(200).json(doubts);
@@ -187,9 +167,9 @@ router.get('/:roomID/starredDoubts/:username', async (req, res) => {
     }
 });
 
-router.get('/getall', async (req, res)=> {
-    const doubt = await Doubt.find().sort({doubtID: -1});
-    res.json(doubt);
-})
+// router.get('/getall', async (req, res)=> {
+//     const doubt = await Doubt.find().sort({doubtID: -1});
+//     res.json(doubt);
+// })
 
 module.exports = router;
