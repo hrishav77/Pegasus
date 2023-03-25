@@ -1,3 +1,4 @@
+import { Spacer } from "@chakra-ui/react";
 import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
 import Overlay from "../components/OverlayPost";
@@ -18,7 +19,8 @@ const SolutionPage = () => {
                         <AccountPanel username={username}/>
                         <RoomPanel rooms={rooms}/>
                     </div>
-                <div className={styles.rightsidebar}>
+                
+                <div className={styles.rightsidebarsol}>
                     <OverlaySol/>
                 </div>
             </div>
