@@ -29,8 +29,10 @@ export default function Navbar(props) {
   return (
     <Flex className={styles.navbar} as="nav" p="10px" alignItems="center" bg="#334756" color="white" width="100%">
       {isSmallScreen && <LeftHamburg roomSwitch={props.roomSwitch}/>}
-      
+    <div className={styles.signature}>
+    <img src="../logo@2x.png" width="40px"/> 
     <Heading className={styles.appName}>{settings.appName}</Heading>
+    </div>
       <Text fontSize="3xl" fontFamily="'Orbitron', sans-serif" fontWeight="400" >{props.room}</Text>
       <HStack className={styles.buttonBar} spacing="10px">
         <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}} onClick={logout}>
