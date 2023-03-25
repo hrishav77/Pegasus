@@ -36,7 +36,7 @@ export default function Navbar(props) {
         <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}} onClick={logout}>
           logout
         </Button>
-         {window.location.pathname=="/account" && <HamburgHelp/> }
+         {window.location.pathname=="/account" && isSmallScreen && <HamburgHelp/> }
         { !window.location.pathname=="/account" && isSmallScreen && <Hamburger/> }
       </HStack>
     </Flex>

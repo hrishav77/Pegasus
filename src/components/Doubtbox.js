@@ -1,6 +1,7 @@
 import { Flex, Spacer, Text,Button} from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react';
+import styles from "../pages/DoubtPage.module.css";
 
 
 import { Link } from 'react-router-dom';
@@ -47,8 +48,9 @@ export default function Doubtbox(props) {
       <Link to={"/solutionpage?room="+props.roomID+"&doubt="+props.doubtID}>Solutions</Link>
       </Button>
       <Spacer/>
+      <div className='extras'>
       <span style={{margin:"5px",textAlign:"right"}}>Topic:{props.topic}</span> <span style={{margin:"5px",textAlign:"right"}}>Subtopic:{props.subtopic}</span> 
-
+      </div>
     </Flex>
     
       
