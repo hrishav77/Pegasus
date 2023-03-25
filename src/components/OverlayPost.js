@@ -33,14 +33,12 @@ import {
     }
     const postHandler=(event)=>{
       const data={
-            ddoubtID: 21,
           topic:topic,
           subtopic:subTopic,
           title: title,
           body: body,
           userID: props.username,
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
+          date: new Date().toLocaleDateString(),
       };
       props.postDoubt(data);
     }
