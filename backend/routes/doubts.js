@@ -123,7 +123,7 @@ router.post('/filters', async (req, res) => {
             res.status(200).json(doubt);
         }
         else{
-            let doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
+            let doubt = await Doubt.find({roomID: room});
             if(!subtopic){
                 doubt = doubt.filter((doubt) => doubt.topic == topic);
             }else if(!sender && !topic){

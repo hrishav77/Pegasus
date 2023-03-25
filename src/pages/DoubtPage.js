@@ -109,9 +109,26 @@ const DoubtPage = () => {
       }
     };
 
-    const applyFilter = (data) => {
+    const applyFilter = async (data) => {
       let {sender, topic, subtopic} = data;
-      console.log(sender+"XX"+topic+"XX"+subtopic);
+      let url = backend+'/api/doubts/filters';
+      let config = settings.getToken();
+      let username = settings.getUsername();
+      config.method = "POST";
+      config.body = JSON.stringify({
+            roomID: currentRoom.roomID,
+            username: username,
+            number: 0,
+            sender: sender,
+            topic: topic,
+            subtopic: subtopic
+      });
+      let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+      x = await x.json();
+      if (Array.isArray(x)) {
+          console.log(x);
+          setDoubts(x.reverse());
+      }
     };
 
     const roomSwitch = (x) => {
@@ -156,7 +173,6 @@ const DoubtPage = () => {
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
                         <Overlay postDoubt={doubtHandler} username={username}/>
-                        
                     </div>
                 </div>
             </Flex>
