@@ -37,7 +37,7 @@ import {
           subtopic:subTopic,
           title: title,
           body: body,
-          userID: props.username,
+          username: props.username,
           date: new Date().toLocaleDateString(),
       };
       props.postDoubt(data);
