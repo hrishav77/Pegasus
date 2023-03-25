@@ -36,7 +36,7 @@ const AccountPage = () => {
           doubtDetail: "DETAIL DETAILS"
         }
       ]);
-    const [starredDoubts, setDoubts] = useState([
+    const [starredDoubts, setStarredDoubts] = useState([
         // {
         //   doubtID: 25,
         //   topic:"microelectronics",
@@ -73,7 +73,18 @@ const AccountPage = () => {
         });
         let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
         x = await x.json();
-        setYourDoubts(x);
+        if (Array.isArray(x)) {
+            setYourDoubts(x);
+        }
+        url = backend+'/api/doubts/starreddoubts';
+        config.body = JSON.stringify({
+            username: username
+        });
+        let y = await fetch(url, config);
+        y = await y.json();
+        if (Array.isArray(y)) {
+            setStarredDoubts(y);
+        }
     };
 
     useEffect(() => {

@@ -78,9 +78,21 @@ const DoubtPage = () => {
       })
     }
 
-    const loadDoubtsFromRoom = (roomID) => {
-      // Make an api call here and put the dictionary in x
-      // setDoubts(x);
+    const loadDoubtsFromRoom = async (roomID) => {
+      let url = backend+'/api/doubts/getroomdoubts';
+      let config = settings.getToken();
+      let username = settings.getUsername();
+      config.method = "POST";
+      config.body = JSON.stringify({
+            roomID: currentRoom.roomID,
+            username: username,
+            number: 0
+      });
+      let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+      x = await x.json();
+      if (Array.isArray(x)) {
+          setDoubts(x);
+      }
     };
 
     const applyFilter = (data) => {
