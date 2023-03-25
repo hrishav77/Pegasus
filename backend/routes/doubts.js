@@ -95,7 +95,28 @@ router.get('/filters', async (req, res) => {
     const subtopic = req.body.subtopic;
     const sender = req.body.sender;
     try{
-        const doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
+        if (!room){
+            let doubt = await Doubt.find();
+            if(!subtopic){
+                if(!topic){
+                    doubt = doubt;
+                }else{
+                    doubt = doubt.filter((doubt) => doubt.topic == topic);
+                }
+                
+            }else if(!topic){
+                doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
+            }else{
+                doubt = doubt.filter(doubt => doubt.topic == topic);
+                doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
+            }
+            if(sender){
+                let user = await User.findOne({username: sender});
+                doubt = doubt.filter(doubt => doubt.userID == user.userID);
+            }
+            res.status(200).json(doubt);
+        }
+        let doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
         if(!subtopic){
             doubt = doubt.filter((doubt) => doubt.topic == topic);
         }else if(!sender && !topic){
