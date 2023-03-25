@@ -116,20 +116,23 @@ router.get('/filters', async (req, res) => {
             }
             res.status(200).json(doubt);
         }
-        let doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
-        if(!subtopic){
-            doubt = doubt.filter((doubt) => doubt.topic == topic);
-        }else if(!sender && !topic){
-            doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
-        }else{
-            doubt = doubt.filter(doubt => doubt.topic == topic);
-            doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
+        else{
+            let doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
+            if(!subtopic){
+                doubt = doubt.filter((doubt) => doubt.topic == topic);
+            }else if(!sender && !topic){
+                doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
+            }else{
+                doubt = doubt.filter(doubt => doubt.topic == topic);
+                doubt = doubt.filter(doubt => doubt.subtopic == subtopic);
+            }
+            if(sender){
+                user = await User.findOne({username: sender});
+                doubt = doubt.filter(doubt => doubt.userID == user.userID);
+            }
+            res.status(200).json(doubt);
         }
-        if(sender){
-            user = await User.findOne({username: sender});
-            doubt = doubt.filter(doubt => doubt.userID == user.userID);
-        }
-        res.status(200).json(doubt);
+        
     }catch(error){
         res.status(400).json({error: error.msg});
     }
