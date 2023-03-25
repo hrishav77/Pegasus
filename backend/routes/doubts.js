@@ -44,10 +44,10 @@ router.post('/starreddoubts', async (req, res) => {
 router.post('/getroomdoubts', async (req, res) =>{
     //get all doubts of a particular room for a particular user
     const roomID = req.body.roomID;
-    const user = await User.find({username: req.body.username});
+    const user = await User.findOne({username: req.body.username});
     const number = req.body.number;
     try{
-        const starredDoubts = user.starredDoubts;
+        let starredDoubts = user.starredDoubts;
         // const doubts = await Doubt.find({roomID},{skip: number, limit: number+10, sort: {doubtID: -1}});
         const doubts = await Doubt.find({roomID});
         const sDoubts = starredDoubts.filter((doubt) => {

@@ -78,7 +78,7 @@ const DoubtPage = () => {
       })
     }
 
-    const loadDoubtsFromRoom = async (roomID) => {
+    const loadDoubtsFromRoom = async () => {
       let url = backend+'/api/doubts/getroomdoubts';
       let config = settings.getToken();
       let username = settings.getUsername();
@@ -123,7 +123,7 @@ const DoubtPage = () => {
     }, []);
 
     useEffect(() => {
-      loadDoubtsFromRoom(currentRoom.roomID);
+      loadDoubtsFromRoom();
     }, [currentRoom]);
 
     return (
