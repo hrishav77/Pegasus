@@ -12,6 +12,8 @@ import { Button, useDisclosure } from "@chakra-ui/react"
 import FilterPanel from './FilterPanel'
 import Overlay from './OverlayPost'
 import { Link } from 'react-router-dom'
+import styles from "../pages/DoubtPage.module.css";
+
 
 export default function DrawerExample() {
   const { isOpen, onOpen, onClose } = useDisclosure()

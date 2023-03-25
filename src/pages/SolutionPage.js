@@ -3,7 +3,6 @@ import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
 import OverlaySol from"../components/OverlaySol"
 import RoomPanel from "../components/RoomPanel";
-import DoubtList from "../components/DoubtList";
 import styles from "./DoubtPage.module.css";
 import { useState, useEffect } from "react";
 import SolutionList from "../components/SolutionList";

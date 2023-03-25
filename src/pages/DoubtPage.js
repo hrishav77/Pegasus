@@ -145,12 +145,12 @@ const DoubtPage = () => {
     return (
         <Flex className="doubtpage">
             <Flex  className={styles.content}>
-                <Navbar room={currentRoom.name}/>
+                <Navbar room={currentRoom.name} roomSwitch={roomSwitch}/>
                 <div className={styles.doubtpagecontent}>
-                    <Flex className={styles.leftsidebar}>
+                    <div className={styles.leftsidebar}>
                         <AccountPanel username={username}/>
                         <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
-                    </Flex>
+                    </div>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
                         <DoubtList doubts={doubts} roomID={currentRoom.roomID} buttonBarVisible={true}/>

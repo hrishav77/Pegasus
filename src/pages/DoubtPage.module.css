@@ -15,7 +15,7 @@
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     overflow: hidden;
 }
-.leftsidebar {
+.leftsidebar{
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
@@ -57,5 +57,31 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  .LeftHamburg{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    gap: 5px;
+  
+}
+
+
+@media screen and (max-width: 900px){
+  .leftsidebar{
+    display: none;
+  }
+  .rightsidebar{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .leftham{
+    display: none;
+  }
+  .rightham{
+    display: none;
+  }
+}
 
   
