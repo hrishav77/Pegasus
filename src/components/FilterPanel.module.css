@@ -18,7 +18,11 @@
     flex-flow: column nowrap;
 }
 
-h3{
+.filterHeader {
+    margin-top: 10px;
+}
+
+.filterTitle{
     margin-bottom: 2px;
 }
 

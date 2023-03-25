@@ -10,7 +10,6 @@ import FilterPanel from "../components/FilterPanel";
 
 const settings = require('../settings');
 
-
 const DoubtPage = () => {
     const backend = settings.backend;
     const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
@@ -32,15 +31,13 @@ const DoubtPage = () => {
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
         }
-        
-      ]);
+    ]);
      
-        const doubthandler=(info)=>{
-     
-          setDoubts(doubts=>{
-            return([info,...doubts])
-          })
-        }
+    const doubthandler=(info)=>{ 
+      setDoubts(doubts=>{
+      return([info,...doubts])
+      })
+    }
 
     const loadDoubtsFromRoom = (roomID) => {
       // Make an api call here and put the dictionary in x
