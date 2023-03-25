@@ -6,7 +6,7 @@ const requireAuth =require('../middleware/requireAuth')
 
 router.use(requireAuth);
 
-router.get('/starreddoubts', async (req, res) => {
+router.post('/starreddoubts', async (req, res) => {
     //get the starred doubts of a particular room for a particular user
     const username = req.body.username;
     const user = await User.findOne({username});
@@ -41,7 +41,7 @@ router.get('/starreddoubts', async (req, res) => {
     }
 });
 
-router.get('/getroomdoubts', async (req, res) =>{
+router.post('/getroomdoubts', async (req, res) =>{
     //get all doubts of a particular room for a particular user
     const roomID = req.body.roomID;
     const user = await User.find({username: req.body.username});
@@ -88,7 +88,7 @@ router.post('/postdoubt', async (req, res) => {
     }
 });
 
-router.get('/filters', async (req, res) => {
+router.post('/filters', async (req, res) => {
     //filtering doubts based on topic
     console.log("hi");
     const room = req.body.roomID;
@@ -165,7 +165,7 @@ router.get('/filters', async (req, res) => {
 //     }
 // });
 
-router.get('/searchtitle', async (req, res) => {
+router.post('/searchtitle', async (req, res) => {
     //searching the title of doubts in the search bar
     const room = req.body.roomID;
     const title = req.body.title;
