@@ -36,7 +36,7 @@ export default function Doubtbox(props) {
   return (
     <Box w="100%" h="fit-content">
         <Flex fontSize="sm" font-family=" 'Bona Nova', serif">
-        {props.userID}
+        {props.username}
         <Spacer/>
         <Text fontSize="sm">{date}</Text>
         </Flex>  

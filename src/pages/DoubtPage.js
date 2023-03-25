@@ -137,6 +137,29 @@ const DoubtPage = () => {
       setCurrentRoom(obj);
     }
 
+    const search = async (text) => {
+      if (text) {
+        let url = backend+'/api/doubts/searchtitle';
+        let config = settings.getToken();
+        let username = settings.getUsername();
+        config.method = "POST";
+        config.body = JSON.stringify({
+              roomID: currentRoom.roomID,
+              title: text,
+              username: username,
+              number: 0
+        });
+        let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+        x = await x.json();
+        if (Array.isArray(x)) {
+            console.log(x);
+            setDoubts(x.reverse());
+        }
+      } else {
+        loadDoubtsFromRoom(currentRoom.roomID);
+      }
+    };
+
     useEffect(() => {
       if(!settings.isLoggedIn()) {
         nav("/");
@@ -167,7 +190,7 @@ const DoubtPage = () => {
                         <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
                     </div>
                     <div className={styles.centresidebar}>
-                        <SearchTool/>
+                        <SearchTool search={search}/>
                         <DoubtList doubts={doubts} roomID={currentRoom.roomID} buttonBarVisible={true}/>
                     </div>
                     <div className={styles.rightsidebar}>

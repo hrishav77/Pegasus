@@ -11,7 +11,7 @@ function DoubtList(props) {
         <div className='singleDoubt' key={doubt.doubtID}>
           <Doubtbox title={doubt.title}
             body={doubt.body} 
-            userID={doubt.userID}
+            username={doubt.username}
             roomID={props.roomID}
             doubtID={doubt.doubtID}
             topic={doubt.topic} 
