@@ -6,8 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const settings = require("../settings");
 
 const AuthWidget = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const nav = useNavigate();
 
   const [isSignUp, setIsSignUp] = useState(false);

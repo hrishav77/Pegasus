@@ -55,7 +55,7 @@ const DoubtPage = () => {
       if (urlParams.has("room")) {
         const x = parseInt(urlParams.get("room"));
         let obj = rooms.find(o => o.roomID === x);
-        setCurrentRoom({x, obj});
+        setCurrentRoom(obj);
         console.log(x);
       }
       else {
@@ -67,11 +67,12 @@ const DoubtPage = () => {
     }, []);
 
     useEffect(() => {
-      let obj = rooms.find(o => o.roomID === currentRoom.roomID);
-      setCurrentRoom(obj);
+      //let obj = rooms.find(o => o.roomID === currentRoom.roomID);
+      //setCurrentRoom(obj);
       loadDoubtsFromRoom(currentRoom.roomID);
     }, [currentRoom]);
-const username="var user"
+
+    const username="var user"
     return (
         <div className="doubtpage">
             <div className={styles.content}>
