@@ -3,6 +3,8 @@ import styles from "./AuthWidget.module.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
+const settings = require("../settings");
+
 const AuthWidget = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +13,7 @@ const AuthWidget = () => {
   const [isSignUp, setIsSignUp] = useState(false);
 
   const handleSubmit = async () => {
-    const backend = "http://localhost:5000";
+    const backend = settings.backend;
     const u = document.querySelector("#userInput").value;
     const p = document.querySelector("#passwordInput").value;
 

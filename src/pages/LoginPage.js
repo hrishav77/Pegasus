@@ -1,7 +1,7 @@
 import AuthWidget from "../components/AuthWidget";
 import styles from "./LoginPage.module.css";
 
-const LoginPage = () => {
+const LoginPage = () => {  
   return (
   <div className={styles.loginpage}>
     <div className={styles.content}>

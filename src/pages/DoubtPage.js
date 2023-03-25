@@ -47,6 +47,11 @@ const DoubtPage = () => {
       // setDoubts(x);
     };
 
+    const applyFilter = (data) => {
+      let {sender, topic, subtopic} = data;
+      console.log(sender+"XX"+topic+"XX"+subtopic);
+    };
+
     useEffect(() => {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("room")) {
@@ -75,7 +80,7 @@ const DoubtPage = () => {
                 <Navbar room={currentRoom.name}/>
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
-                        <AccountPanel />
+                        <AccountPanel/>
                         <RoomPanel rooms={rooms}/>
                     </div>
                     <div className={styles.centresidebar}>
@@ -83,7 +88,7 @@ const DoubtPage = () => {
                         <DoubtList doubts={doubts}/>
                     </div>
                     <div className={styles.rightsidebar}>
-                        <FilterPanel/>
+                        <FilterPanel onFilter={applyFilter}/>
                         <Overlay setDoubts={doubthandler}/>
                     </div>
                 </div>
