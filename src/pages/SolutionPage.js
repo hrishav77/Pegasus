@@ -1,19 +1,18 @@
-import { Flex, Spacer } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
 import Overlay from "../components/OverlayPost";
 import OverlaySol from"../components/OverlaySol"
 import RoomPanel from "../components/RoomPanel";
+import DoubtList from "../components/DoubtList";
 import styles from "./DoubtPage.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const settings = require("../settings");
 
 const SolutionPage = () => {
     const nav = useNavigate();
     const rooms =settings.rooms;
     const [username, setUsername] = useState("var user");
-    const [currentDoubt, setCurrentDoubt] = useState({roomID: 1, name: "DEFAULT"});
 
     const roomSwitch = (x) => {
         nav("/doubtpage/?room="+x);
@@ -23,21 +22,37 @@ const SolutionPage = () => {
 
     };
 
+    const loadDoubt = (x, y) => {
+        // access API for doubt x, y else return to login
+    };
+
+    useEffect(() => {
+        if(!settings.isLoggedIn()) {
+            nav("/");
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("room") && urlParams.has("doubt")) {
+            const x = parseInt(urlParams.get("room"));
+            const y = parseInt(urlParams.get("doubt"));
+            loadDoubt(x, y);                 
+        } else {
+            // nav("/");
+        }
+    }, []);
+
     return ( <div className="solutionpage">
         <div className={styles.content}>
             <Navbar />
             <div className={styles.doubtpagecontent}>
-                    <div className={styles.leftsidebar}>
-                        <AccountPanel username={username}/>
-                        <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
-                    </div>
-                
-                <div className={styles.rightsidebarsol}>
-                    <Flex mt="10px" mr="5px">
-                        <Spacer/>
+                <div className={styles.leftsidebar}>
+                    <AccountPanel username={username}/>
+                    <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
+                </div>
+                <div className={styles.centresidebar}>
+                    <DoubtList />
+                </div>
+                <div className={styles.rightsidebar}>
                     <OverlaySol postSolution={solutionHandler}/>
-                    </Flex>
-                    
                 </div>
             </div>
         </div>
