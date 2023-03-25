@@ -33,27 +33,27 @@ const AccountPage = () => {
           doubtDetail: "DETAIL DETAILS"
         }
       ]);
-      const [starredDoubts, setDoubts] = useState([
-        {
-          doubtID: 25,
-          topic:"microelectronics",
-          subtopic:"diff amp",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        },
-        {
-          doubtID: 21,
-          topic:"microprocc",
-          subtopic:"mod7",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
-          userID: "Amal",
-          date: "Today",
-          doubtDetail: "DETAIL DETAILS"
-        }
+    const [starredDoubts, setDoubts] = useState([
+        // {
+        //   doubtID: 25,
+        //   topic:"microelectronics",
+        //   subtopic:"diff amp",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // },
+        // {
+        //   doubtID: 21,
+        //   topic:"microprocc",
+        //   subtopic:"mod7",
+        //   title: "TITLEEIJJEI",
+        //   body: "BODYIHIDSSHO",
+        //   userID: "Amal",
+        //   date: "Today",
+        //   doubtDetail: "DETAIL DETAILS"
+        // }
     ]);
 
     const roomSwitch = (x) => {
