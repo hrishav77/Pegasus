@@ -24,10 +24,12 @@
 
 .filterHeader {
     margin-top: 10px;
+    font-size: 20px;
 }
 
 .filterTitle{
     margin-bottom: 2px;
+    font-size: 15px;
 }
 
 .checkBox{

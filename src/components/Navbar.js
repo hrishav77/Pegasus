@@ -6,6 +6,8 @@ import Hamburger from "./Hamburger";
 import { useNavigate } from 'react-router-dom';
 import LeftHamburg from './LeftHamburg';
 import { useMediaQuery } from "@chakra-ui/media-query";
+import HelpBox from './HelpBox';
+import HamburgHelp from './HamburgHelp';
 
 const settings = require("../settings");
 <style>
@@ -34,8 +36,8 @@ export default function Navbar(props) {
         <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}} onClick={logout}>
           logout
         </Button>
-       
-        {isSmallScreen && <Hamburger/> }
+         {window.location.pathname=="/account" && <HamburgHelp/> }
+        { !window.location.pathname=="/account" && isSmallScreen && <Hamburger/> }
       </HStack>
     </Flex>
   )
