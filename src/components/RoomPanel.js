@@ -7,7 +7,7 @@ const RoomPanel = ({ rooms, onSwitchRoom }) => {
         <div className={styles.roompanel}>
             <span className={styles.roompanelheader}>Rooms</span><hr className={styles.hr}/>
             {rooms.map((room) => (
-                <div className={!(activeRoom==room.roomID) ? 
+                <div className={!(activeRoom===room.roomID) ? 
                     styles.roompanelitem : styles.roompanelitemcurrent}
                     onClick={() => {
                         setCurrentRoom(room.roomID);

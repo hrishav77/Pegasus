@@ -89,7 +89,7 @@ const DoubtPage = () => {
     };
 
     const roomSwitch = (x) => {
-      nav("/doubtpage/?room="+x);
+      nav("/doubtpage?room="+x);
       let obj = rooms.find(o => o.roomID === x);
       setCurrentRoom(obj);
     }
@@ -98,7 +98,7 @@ const DoubtPage = () => {
       if(!settings.isLoggedIn()) {
         nav("/");
       }
-      setUsername(settings.getUsername);
+      setUsername(settings.getUsername());
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("room")) {
         const x = parseInt(urlParams.get("room"));
