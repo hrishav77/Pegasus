@@ -12,18 +12,19 @@ const SolutionPage = () => {
     const nav = useNavigate();
     const rooms =settings.rooms;
     const [username, setUsername] = useState("var user");
-    const [Solutions, setSolutions] = useState([
-        {
-          doubtID: 25,
-          body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
-          username: "Amal",
+    const [doubt, setDoubt] = useState({});
+    const [solutions, setSolutions] = useState([
+        // {
+        //   doubtID: 25,
+        //   body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
+        //   username: "Amal",
     
-        },
-        {
-          doubtID: 21,
-          body: "BODYIHIDSSHO",
-          username: "Amal"
-        },
+        // },
+        // {
+        //   doubtID: 21,
+        //   body: "BODYIHIDSSHO",
+        //   username: "Amal"
+        // },
         
     ]);
 
@@ -31,14 +32,36 @@ const SolutionPage = () => {
         nav("/doubtpage/?room="+x);
     };
 
-    const solutionHandler = (data) => {
+    const solutionHandler = async (data) => {
         setSolutions(solution=>{
             return([data,...solution])
-            })
+        });
+        info.roomID = currentRoom.roomID;
+        let url = backend+'/api/doubts/postdoubt';
+        let config = settings.getToken();
+        let username = settings.getUsername();
+        config.method = "POST";
+        config.body = JSON.stringify(info);
+        console.log(info);
+        let x = await fetch(url, config);
     };
 
-    const loadDoubt = (x, y) => {
-        // access API for doubt x, y else return to login
+    const loadDoubt = async (x, y) => {
+        let url = settings.backend+'/api/solutions/'+x.toString()+"/"+y.toString();
+        let config = settings.getToken();
+        let username = settings.getUsername();
+        config.method = "POST";
+        // config.body = JSON.stringify({
+        //     roomID: currentRoom.roomID,
+        //     username: username,
+        //     number: 0
+        // });
+        let a = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+        a = await a.json();
+        if (Array.isArray(a)) {
+            console.log(a);
+            setSolutions(a.reverse());
+        }
     };
 
     useEffect(() => {
@@ -52,7 +75,7 @@ const SolutionPage = () => {
             const y = parseInt(urlParams.get("doubt"));
             loadDoubt(x, y);                 
         } else {
-            // nav("/");
+            nav("/");
         }
     }, []);
 
@@ -65,7 +88,7 @@ const SolutionPage = () => {
                     <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
                 </div>
                 <div className={styles.centresidebar}>
-                    <SolutionList solutions={Solutions}/>
+                    <SolutionList doubt={doubt} solutions={solutions}/>
                 </div>
                 <div className={styles.rightsidebar}>
                     <OverlaySol postSolution={solutionHandler} username={username}/>
