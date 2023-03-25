@@ -3,13 +3,49 @@ const Doubt = require('../models/doubtModel');
 const User = require('../models/userModel');  
 const router = express.Router();
 
-router.get('/:roomID/:username', async (req, res) =>{
+router.get('/starreddoubts/:username', async (req, res) => {
+    //get the starred doubts of a particular room for a particular user
+    const username = req.params.username;
+    const user = await User.findOne({username});
+    const roomID = req.body.roomID;
+    try{
+        if(!roomID){
+            let x = [];
+            for (let i = 0; i < user.starredDoubts.length; i++){
+             let doubt = await Doubt.findOne({roomID: Number(user.starredDoubts[i].roomID), doubtID: user.starredDoubts[i].doubtID});
+             x.push(doubt);
+            }
+            res.status(200).json(x);
+        }else{
+            if(user.starredDoubts){
+                const x = user.starredDoubts;
+                const y = x.filter((item) => {
+                    return item.roomID == roomID;
+                });
+                const z = [];
+                for (i=0; i < y.length; i++){
+                let doubt = await Doubt.findOne({roomID: Number(y[i].roomID), doubtID: y[i].doubtID});
+                z.push(doubt);
+            }
+            res.status(200).json(z);
+            }
+            else{
+                res.send("There are no starred doubts");
+            }
+        }     
+    }catch (error){
+        res.status(400).json({error: error.msg});
+    }
+});
+
+router.get('/getroomdoubts', async (req, res) =>{
     //get all doubts of a particular room for a particular user
-    const roomID = req.params.roomID;
-    const user = await User.find({username: req.params.username});
+    const roomID = req.body.roomID;
+    const user = await User.find({username: req.body.username});
+    const number = req.body.number;
     try{
         const starredDoubts = user.starredDoubts;
-        const doubts = await Doubts.find({roomID});
+        const doubts = await Doubt.find({roomID},{skip: number, limit: number+10, sort: {doubtID: -1}});
         const sDoubts = starredDoubts.filter((doubt) => {
             return doubt.roomID == roomID;
         })
@@ -29,10 +65,15 @@ router.get('/:roomID/:username', async (req, res) =>{
     }
 });
 
-router.post('/:roomID', async (req, res) => {
+router.post('/postdoubt', async (req, res) => {
     //post the doubt in the room
-    const {title, body, username, topic, subtopic, image} = req.body;
-    const roomID = req.params.roomID;
+    const title = req.body.title;
+    const topic = req.body.topic;
+    const subtopic = req.body.subtopic;
+    const body = req.body.body;
+    const username = req.body.username;
+    const image = req.body.image;
+    const roomID = req.body.roomID;
     const user = await User.findOne({username});
     try{
         const roomDoubts = await Doubt.find({roomID: roomID});
@@ -44,14 +85,14 @@ router.post('/:roomID', async (req, res) => {
     }
 });
 
-router.get('/:roomID/filters', async (req, res) => {
+router.get('/filters', async (req, res) => {
     //filtering doubts based on topic
-    const room = req.params.roomID;
+    const room = req.body.roomID;
     const topic = req.body.topic;
     const subtopic = req.body.subtopic;
     const sender = req.body.sender;
     try{
-        const doubt = await Doubt.find({roomID: room});
+        const doubt = await Doubt.find({roomID: room}, {sort:{doubtID: -1}});
         if(!subtopic){
             doubt = doubt.filter((doubt) => doubt.topic == topic);
         }else if(!sender && !topic){
@@ -82,25 +123,25 @@ router.get('/:roomID/filters', async (req, res) => {
 //     }
 // });
 
-router.get('/:roomID/filter3/:username', async (req, res) => {
-    //find all doubts in that room sent by a particular person
-    const roomID = req.params.roomID;
-    const username = req.params.username;
-    const user = await User.findOne({username});
-    try{
-        const doubts = await Doubt.find({userID: user.userID, roomID: roomID});
-        res.status(200).json(doubts);
-    }catch(error){
-        res.status(400).json({error: error.msg});
-    }
-});
+// router.get('/:roomID/filter3/:username', async (req, res) => {
+//     //find all doubts in that room sent by a particular person
+//     const roomID = req.params.roomID;
+//     const username = req.params.username;
+//     const user = await User.findOne({username});
+//     try{
+//         const doubts = await Doubt.find({userID: user.userID, roomID: roomID});
+//         res.status(200).json(doubts);
+//     }catch(error){
+//         res.status(400).json({error: error.msg});
+//     }
+// });
 
-router.get('/:roomID/search/:title', async (req, res) => {
+router.get('/searchtitle', async (req, res) => {
     //searching the title of doubts in the search bar
-    const room = req.params.roomID;
-    const title = req.params.title;
+    const room = req.body.roomID;
+    const title = req.body.title;
     try{
-        const doubt = await Doubt.find({title: title, roomID: room});
+        const doubt = await Doubt.find({title: title, roomID: room}, {sort: {doubtID: -1}});
         res.status(200).json(doubt);
     }catch(error){
         res.status(400).json({error: error.msg});
@@ -135,10 +176,10 @@ router.get('/:roomID/search/:title', async (req, res) => {
 //     }
 // });
 
-router.put('/:roomID/starreddoubts/:username', async (req, res) => {
+router.put('/starreddoubts', async (req, res) => {
     //add the starred doubts of the user
-    const username = req.params.username;
-    const roomID = req.params.roomID;
+    const username = req.body.username;
+    const roomID = req.body.roomID;
     const doubtID = req.body.doubtID;
     try{
         const user = await User.findOne({username}, function(err, doc){
@@ -151,41 +192,20 @@ router.put('/:roomID/starreddoubts/:username', async (req, res) => {
     }
 });
 
-router.get('/starredDoubts/:username', async (req, res) => {
-    //get the starred doubts of a particular room for a particular user
-    const username = req.params.username;
-    const user = await User.findOne({username});
+router.put('/unstardoubt', async (req, res) => {
+    //unstar a doubt
+    const username = req.body.username;
     const roomID = req.body.roomID;
+    const doubtID = req.body.doubtID;
     try{
-        if(!roomID){
-            let x = [];
-            for (let i = 0; i < user.starredDoubts.length; i++){
-             let doubt = await Doubt.findOne({roomID: user.starredDoubts[i].roomID, doubtID: user.starredDoubts[i].doubtID});
-             x.push(doubt);
-            }
-            res.status(200).json(x);
-        }else{
-            if(user.starredDoubts){
-                const x = user.starredDoubts;
-                const y = x.filter((item) => {
-                    return item.roomID == roomID;
-                });
-                console.log(y);
-                const z = [];
-                for (i=0; i < y.length; i++){
-                let doubt = await Doubt.findOne({roomID: y[i].roomID, doubtID: y[i].doubtID});
-                z.push(doubt);
-            }
-            res.status(200).json(z);
-            }
-            else{
-                res.send("There are no starred doubts");
-            }
-        }     
-    }catch (error){
+        const user = await User.updateOne({username}, {$pull: {starredDoubts: {roomID, doubtID}}});
+        res.status(200).json(user);
+    }catch(error){
         res.status(400).json({error: error.msg});
     }
-});
+    
+})
+
 
 // router.get('/getall', async (req, res)=> {
 //     const doubt = await Doubt.find().sort({doubtID: -1});
