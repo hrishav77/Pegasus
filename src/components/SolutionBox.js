@@ -27,7 +27,7 @@ const starredButton=()=>{
         <Flex fontSize="sm" font-family=" 'Bona Nova', serif">
         {props.username}
         <Spacer/>
-        <Text fontSize="sm">{date}</Text>
+        <Text fontSize="sm">{props.date}</Text>
         </Flex>  
     
     <Text fontSize="lg">{props.body}</Text>
