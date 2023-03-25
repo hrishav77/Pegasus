@@ -12,6 +12,7 @@ const SolutionPage = () => {
     const nav = useNavigate();
     const rooms =settings.rooms;
     const [username, setUsername] = useState("var user");
+    let x, y;
     const [doubt, setDoubt] = useState({});
     const [solutions, setSolutions] = useState([
         // {
@@ -36,21 +37,22 @@ const SolutionPage = () => {
         setSolutions(solution=>{
             return([data,...solution])
         });
-        info.roomID = currentRoom.roomID;
-        let url = backend+'/api/doubts/postdoubt';
+        data.doubtID = y;
+        data.roomID = x;
+        let url = settings.backend+'/api/solutions/'+x.toString()+'/'+y.toString();
         let config = settings.getToken();
         let username = settings.getUsername();
         config.method = "POST";
-        config.body = JSON.stringify(info);
-        console.log(info);
+        config.body = JSON.stringify(data);
         let x = await fetch(url, config);
     };
 
-    const loadDoubt = async (x, y) => {
-        let url = settings.backend+'/api/solutions/'+x.toString()+"/"+y.toString();
+    const loadSolution = async (x, y) => {
+        let url = settings.backend+'/api/solutions/roomID/'+y.toString();
         let config = settings.getToken();
         let username = settings.getUsername();
         config.method = "POST";
+        config.body = JSON.stringify({roomID: x});
         // config.body = JSON.stringify({
         //     roomID: currentRoom.roomID,
         //     username: username,
@@ -71,9 +73,9 @@ const SolutionPage = () => {
         setUsername(settings.getUsername());
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("room") && urlParams.has("doubt")) {
-            const x = parseInt(urlParams.get("room"));
-            const y = parseInt(urlParams.get("doubt"));
-            loadDoubt(x, y);                 
+            x = parseInt(urlParams.get("room"));
+            y = parseInt(urlParams.get("doubt"));
+            loadSolution(x, y);                 
         } else {
             nav("/");
         }

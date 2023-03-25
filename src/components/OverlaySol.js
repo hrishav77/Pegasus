@@ -24,7 +24,6 @@ import {
   
     const postHandler=(event)=>{
       const data={
-        doubtID: 25,
         body: body,
         username: props.username
       };
