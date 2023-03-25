@@ -76,21 +76,19 @@ const DoubtPage = () => {
       setDoubts(doubts=>{
       return([info,...doubts])
       });
+      info.roomID = currentRoom.roomID;
       let url = backend+'/api/doubts/postdoubt';
       let config = settings.getToken();
       let username = settings.getUsername();
       config.method = "POST";
-      config.body = JSON.stringify({
-            roomID: currentRoom.roomID,
-            username: username,
-            number: 0
-      });
+      config.body = JSON.stringify(info);
+      console.log(info);
       let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
-      x = await x.json();
-      if (Array.isArray(x)) {
-          console.log(x);
-          setDoubts(x);
-      }
+      // x = await x.json();
+      // if (Array.isArray(x)) {
+      //     console.log(x);
+      //     setDoubts(x);
+      // }
     }
 
     const loadDoubtsFromRoom = async () => {
@@ -107,7 +105,7 @@ const DoubtPage = () => {
       x = await x.json();
       if (Array.isArray(x)) {
           console.log(x);
-          setDoubts(x);
+          setDoubts(x.reverse());
       }
     };
 
