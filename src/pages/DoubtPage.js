@@ -124,7 +124,7 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
-                        <DoubtList doubts={doubts}/>
+                        <DoubtList doubts={doubts} roomID={currentRoom.roomID} buttonBarVisible={true}/>
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
