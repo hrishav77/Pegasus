@@ -1,0 +1,10 @@
+.helpbox {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 12px;
+    gap: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    
+}
