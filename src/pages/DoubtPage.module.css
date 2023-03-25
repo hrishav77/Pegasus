@@ -33,3 +33,7 @@
     align-items: stretch;
     flex-grow: 1;
 }
+.rightsidebarsol {
+    width: 100%;
+    flex-grow: 0;
+}

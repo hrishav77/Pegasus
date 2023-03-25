@@ -30,7 +30,8 @@ import {
     }
     return (
       <>
-        <Button onClick={onOpen}>
+         
+        <Button onClick={onOpen} >
             Post your solutions
         </Button>
   

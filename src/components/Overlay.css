@@ -36,3 +36,12 @@
 .upload{
   background: aliceblue;
 }
+input::file-selector-button {
+ 
+  color:rgb(47, 47, 237);
+
+  border: thin solid grey;
+  border-radius: 3px;
+  background-color: rgba(168, 209, 246, 0.932);
+  border-radius: 10px;
+}
