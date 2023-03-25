@@ -13,7 +13,7 @@ const settings = require("../settings");
 const AccountPage = () => {
     const backend = settings.backend;
     const nav = useNavigate();
-    const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+    const [rooms, setRooms] = useState(settings.rooms);
     const [yourDoubts, setYourDoubts] = useState([
         {
           doubtID: 25,
