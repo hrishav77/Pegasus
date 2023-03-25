@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import styles from "./AccountPage.module.css";
+import styles from "./DoubtPage.module.css";
 import AccountPanel from "../components/AccountPanel";
 import RoomPanel from "../components/RoomPanel";
 import { useState, useEffect } from "react";
@@ -67,7 +67,7 @@ const AccountPage = () => {
     return ( <div className="accountpage">
         <div className={styles.content}>
             <Navbar />
-            <div className={styles.accountpagecontent}>
+            <div className={styles.doubtpagecontent}>
                 <div className={styles.leftsidebar}>
                     {/* <AccountPanel /> */}
                     <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
