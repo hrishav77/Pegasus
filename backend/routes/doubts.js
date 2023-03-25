@@ -18,7 +18,14 @@ router.post('/starreddoubts', async (req, res) => {
              let doubt = await Doubt.findOne({roomID: Number(user.starredDoubts[i].roomID), doubtID: user.starredDoubts[i].doubtID});
              x.push(doubt);
             }
-            res.status(200).json(x);
+            let doubts =[]
+            for (let i = 0; i < x.length; i++){
+                let user2 = await User.findOne({userID: doubt[i].userID});
+                let y = x[i].toObject();
+                y.username = user2.username;
+                doubts.push(y);
+            }
+            res.status(200).json(doubts);
         }else{
             if(user.starredDoubts){
                 const x = user.starredDoubts;
@@ -30,7 +37,14 @@ router.post('/starreddoubts', async (req, res) => {
                 let doubt = await Doubt.findOne({roomID: Number(y[i].roomID), doubtID: y[i].doubtID});
                 z.push(doubt);
             }
-            res.status(200).json(z);
+            let doubts =[]
+            for (let i = 0; i < doubt.length; i++){
+                let user3 = await User.findOne({userID: z[i].userID});
+                let a = z[i].toObject();
+                a.username = user3.username;
+                doubts.push(a);
+            }
+            res.status(200).json(doubts);
             }
             else{
                 res.send("There are no starred doubts");
@@ -54,8 +68,11 @@ router.post('/getroomdoubts', async (req, res) =>{
             return doubt.roomID == roomID;
         });
         const result = [];
+        
         for(let i = 0; i < doubts.length; i++){
             let x = doubts[i].toObject();
+            let user2 = await User.findOne({userID: doubts[i].userID});
+            x.username = user2.username
             if(sDoubts.find(doubt => doubt.doubtID == doubts[i].doubtID)){
                 x.starred = true;
                 console.log("HI");
@@ -136,7 +153,14 @@ router.post('/filters', async (req, res) => {
                 user = await User.findOne({username: sender});
                 doubt = doubt.filter(doubt => doubt.userID == user.userID);
             }
-            res.status(200).json(doubt);
+            let doubts =[]
+            for (let i = 0; i < doubt.length; i++){
+                let user = await User.findOne({userID: doubt[i].userID});
+                let x = doubt[i].toObject();
+                x.username = user.username;
+                doubts.push(x);
+            }
+            res.status(200).json(doubts);
         }
         
     }catch(error){
@@ -174,8 +198,15 @@ router.post('/searchtitle', async (req, res) => {
     const room = req.body.roomID;
     const title = req.body.title;
     try{
-        const doubt = await Doubt.find({title: title, roomID: room}, {sort: {doubtID: -1}});
-        res.status(200).json(doubt);
+        const doubt = await Doubt.find({title: title, roomID: room});
+        let doubts =[]
+            for (let i = 0; i < doubt.length; i++){
+                let user = await User.findOne({userID: doubt[i].userID});
+                let x = doubt[i].toObject();
+                x.username = user.username;
+                doubts.push(x);
+            }
+        res.status(200).json(doubts);
     }catch(error){
         res.status(400).json({error: error.msg});
     }
