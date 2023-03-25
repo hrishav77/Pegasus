@@ -36,7 +36,37 @@ const DoubtPage = () => {
           userID: "Amal",
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
-        }
+        },
+        {
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
     ]);
      
     const doubthandler=(info)=>{ 

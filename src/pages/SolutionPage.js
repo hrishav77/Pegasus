@@ -1,4 +1,4 @@
-import { Spacer } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
 import Overlay from "../components/OverlayPost";
@@ -21,7 +21,11 @@ const SolutionPage = () => {
                     </div>
                 
                 <div className={styles.rightsidebarsol}>
+                    <Flex mt="10px" mr="5px">
+                        <Spacer/>
                     <OverlaySol/>
+                    </Flex>
+                    
                 </div>
             </div>
         </div>
