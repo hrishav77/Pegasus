@@ -1,4 +1,4 @@
-import './FilterPanel.css'
+import styles from './FilterPanel.module.css'
 import { Button } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -23,19 +23,19 @@ export default function FilterPanel({ onFilter }) {
     };
 
     return(
-        <div className="filterContainer">
-            <h2>FILTER</h2>
+        <div className={styles.filterContainer}>
+            <h2 className={styles.filterHeader}>FILTER</h2>
             <div className="searchBars">
-                <div className="row">
-                    <h3>Topic:</h3>
+                <div className={styles.row}>
+                    <h3 className={styles.filterTitle}>Topic:</h3>
                     <input type="text" onChange={topicHandler}/>
                 </div>
-                <div className="row">
-                    <h3>Subtopic:</h3>
+                <div className={styles.row}>
+                    <h3 className={styles.filterTitle}>Subtopic:</h3>
                     <input type="text" onChange={subtopicHandler}/>
                 </div>
-                <div className="row">
-                    <h3>Sender:</h3>
+                <div className={styles.row}>
+                    <h3 className={styles.filterTitle}>Sender:</h3>
                     <input type="text" onChange={senderHandler}/>
                 </div>
             </div>
