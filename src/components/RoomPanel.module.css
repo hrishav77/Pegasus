@@ -3,14 +3,29 @@
     flex-flow: column nowrap;
     align-items: stretch;
     flex-grow: 1;
-    padding: 5px;
+    /* padding: 5px; */
     gap: 2px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
 }
 .roompanelitem:hover {
-    border: solid 2px black;
+    /* border: solid 2px black;
     border-radius: 5px;
-    padding: 3px;   
+    padding: 3px;    */
+    background-color:  rgba(100, 100, 100, 0.2)
+}
+.roompanelitem:active {
+    background-color:  rgba(100, 100, 100, 0.5)
+}
+.roompanelheader {
+    margin-top: 5px;
+    font-weight: 600;
+    color: rgba(70, 70, 70, 0.7);
+}
+.hr {
+    height: 2px;
+    background-color: rgba(70, 70, 70, 0.7);
+    margin-left: 2px;
+    margin-right: 2px;
 }

@@ -91,7 +91,7 @@ const DoubtPage = () => {
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
                         <AccountPanel username={username}/>
-                        <RoomPanel rooms={rooms} onSwitch={roomSwitch}/>
+                        <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
                     </div>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
