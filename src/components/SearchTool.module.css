@@ -3,7 +3,7 @@
     font-weight: 600;
     font-family: Quicksand;
     font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #72A4D2;
     flex: 1;
     border-radius: 5px;
     overflow: hidden;
@@ -12,6 +12,8 @@
     padding: 6px 10px;
     align-items: center;
     justify-content: flex-start;
+    color: black;
+    
   }
   .searchIcon {
     position: relative;
@@ -30,7 +32,7 @@
   .searchbutton {
     cursor: pointer;
     border: 0;
-    background-color: #fff;
+    background-color: aliceblue;
     border-radius: 5px;
     flex-direction: column;
     justify-content: center;

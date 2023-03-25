@@ -4,7 +4,7 @@ import styles from "./SearchTool.module.css";
 const SearchTool = () => {
     return (
         <div className={styles.searchtool}>
-            <Input className={styles.searchbar}/>
+            <Input className={styles.searchbar} bg="aliceblue"/>
             <button className={styles.searchbutton}>
                 <img className={styles.searchIcon} alt="" src="../search.svg" />
             </button>

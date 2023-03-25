@@ -130,7 +130,6 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
-                        <Hamburger/>
                         <Overlay setDoubts={doubthandler} username={username}/>
                         
                     </div>
