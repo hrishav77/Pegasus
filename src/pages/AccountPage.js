@@ -67,11 +67,12 @@ const AccountPage = () => {
         let url = backend+'/api/doubts/filters';
         let config = settings.getToken();
         let username = settings.getUsername();
-        // config.body = JSON.stringify({
-        //      sender: username
-        // });
-        let x = await fetch(url, config);
-        console.log(url);
+        config.method = "POST";
+        config.body = JSON.stringify({
+             sender: username
+        });
+        let x = await fetch(url, config);//.then((res) => res.json()).then((data) => console.log(data));
+        x = await x.json();
         setYourDoubts(x);
     };
 
