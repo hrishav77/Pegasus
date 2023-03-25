@@ -101,16 +101,11 @@ const DoubtPage = () => {
         console.log(x);
       }
       else {
-        // loadDoubtsFromRoom(1);
-        // let obj = rooms.find(o => o.roomID === 1).roomTitle;
-        // setCurrentRoomName(obj);
         // navigating to room 1
       }
     }, []);
 
     useEffect(() => {
-      //let obj = rooms.find(o => o.roomID === currentRoom.roomID);
-      //setCurrentRoom(obj);
       loadDoubtsFromRoom(currentRoom.roomID);
     }, [currentRoom]);
 
@@ -130,7 +125,7 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
-                        <Overlay setDoubts={doubthandler} username={username}/>
+                        <Overlay postDoubt={doubthandler} username={username}/>
                         
                     </div>
                 </div>

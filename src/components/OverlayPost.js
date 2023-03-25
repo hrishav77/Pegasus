@@ -42,7 +42,7 @@ import {
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
       };
-      props.setDoubts(data);
+      props.postDoubt(data);
     }
     return (
       <>

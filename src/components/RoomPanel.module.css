@@ -30,5 +30,5 @@
     margin-right: 2px;
 }
 .roompanelitemcurrent {
-    color: green;
+    background-color: rgba(100, 100, 100, 0.5)
 }
