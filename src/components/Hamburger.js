@@ -20,7 +20,7 @@ export default function DrawerExample() {
   return (
     <>
       <button onClick={onOpen}>
-       <img src="hamburger.png" alt="-"  style={{height:"30px"}} />
+       <img src="../hamburger.png" alt="-"  style={{height:"30px"}} />
       </button>
       <Drawer
         isOpen={isOpen}
