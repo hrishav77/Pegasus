@@ -36,7 +36,7 @@ import {
             doubtID: 23,
             title: title,
             body: body,
-            userID: "aryan",
+            userID: props.username,
             date: "Today",
             doubtDetail: "DETAIL DETAILS"
       };

@@ -70,14 +70,14 @@ const DoubtPage = () => {
       setCurrentRoom(obj);
       loadDoubtsFromRoom(currentRoom.roomID);
     }, [currentRoom]);
-
+const username="var user"
     return (
         <div className="doubtpage">
             <div className={styles.content}>
                 <Navbar room={currentRoom.name}/>
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
-                        <AccountPanel/>
+                        <AccountPanel username={username}/>
                         <RoomPanel rooms={rooms}/>
                     </div>
                     <div className={styles.centresidebar}>
@@ -86,7 +86,7 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
-                        <Overlay setDoubts={doubthandler}/>
+                        <Overlay setDoubts={doubthandler} username={username}/>
                     </div>
                 </div>
             </div>
