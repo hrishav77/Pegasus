@@ -1,5 +1,5 @@
 const appName = "Querious";
-const backend = "https://pegasus-production.up.railway.app";
+const backend = "https://pegasus-production-d892.up.railway.app";
 const rooms = [
   {roomID: 1, name: "Microprocessors"}, 
   {roomID: 2, name: "Microelectronics"},
