@@ -6,7 +6,7 @@ const requireAuth =require('../middleware/requireAuth')
 router.use(requireAuth);
 
 router.post('/roomID/:doubtID', async (req, res) => {
-    const roomID = req.params.roomID;
+    const roomID = req.body.roomID;
     const doubtID = req.params.doubtID;
     try{
         const solutions = await Solution.find({roomID: roomID, doubtID: doubtID});
@@ -18,7 +18,7 @@ router.post('/roomID/:doubtID', async (req, res) => {
 });
 
 router.post('/:roomID/:doubtID', async (req, res) => {
-    const roomID = req.body.roomID;
+    const roomID = req.params.roomID;
     const doubtID = req.params.doubtID;
     const instance = req.body;
     try{
