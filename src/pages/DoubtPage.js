@@ -4,6 +4,7 @@ import RoomPanel from "../components/RoomPanel";
 import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DoubtList from "../components/DoubtList";
 import Overlay from "../components/OverlayPost";
 import FilterPanel from "../components/FilterPanel";
@@ -11,10 +12,10 @@ import FilterPanel from "../components/FilterPanel";
 const settings = require('../settings');
 
 const DoubtPage = () => {
+    const nav = useNavigate();
     const backend = settings.backend;
-    const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
-    //const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
     const rooms = settings.rooms;
+    const [currentRoom, setCurrentRoom] = useState({roomID: 1, name: "DEFAULT"});
     const [doubts, setDoubts] = useState([
         {
           doubtID: 25,
@@ -54,6 +55,12 @@ const DoubtPage = () => {
       console.log(sender+"XX"+topic+"XX"+subtopic);
     };
 
+    const roomSwitch = (x) => {
+      nav("/doubtpage/?room="+x);
+      let obj = rooms.find(o => o.roomID === x);
+      setCurrentRoom(obj);
+    }
+
     useEffect(() => {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("room")) {
@@ -84,7 +91,7 @@ const DoubtPage = () => {
                 <div className={styles.doubtpagecontent}>
                     <div className={styles.leftsidebar}>
                         <AccountPanel username={username}/>
-                        <RoomPanel rooms={rooms}/>
+                        <RoomPanel rooms={rooms} onSwitch={roomSwitch}/>
                     </div>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
