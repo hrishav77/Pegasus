@@ -88,14 +88,12 @@ router.post('/postdoubt', async (req, res) => {
     }
 });
 
-router.get('/filters', async (req, res) => {
+router.post('/filters', async (req, res) => {
     //filtering doubts based on topic
-    console.log("hi");
     const room = req.body.roomID;
     const topic = req.body.topic;
     const subtopic = req.body.subtopic;
     const sender = req.body.sender;
-    console.log("hello");
     try{
         if (!room){
             let doubt = await Doubt.find();
