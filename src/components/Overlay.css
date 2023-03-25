@@ -7,7 +7,7 @@
   }
   
   .item label {
-    font-weight: bold;
+   
     margin-bottom: 0.5rem;
     display: block;
   }
@@ -19,11 +19,10 @@
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
+    background-color: aliceblue;
   }
   
-  .new-expense__actions {
-    text-align: right;
-  }
+
 .item textarea{
     font: inherit;
     padding: 0.5rem;
@@ -31,4 +30,9 @@
     border: 1px solid #ccc;
     width: 20rem;
     max-width: 100%;
+    background-color: aliceblue;
+}
+
+.upload{
+  background: aliceblue;
 }

@@ -1,5 +1,7 @@
 import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
+import Overlay from "../components/OverlayPost";
+import OverlaySol from"../components/OverlaySol"
 import RoomPanel from "../components/RoomPanel";
 import styles from "./DoubtPage.module.css";
 
@@ -17,7 +19,7 @@ const SolutionPage = () => {
                         <RoomPanel rooms={rooms}/>
                     </div>
                 <div className={styles.rightsidebar}>
-                    mwdouhiuhphufeppefwqp
+                    <OverlaySol/>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import SearchTool from "../components/SearchTool";
 import styles from "./DoubtPage.module.css";
 import { useState, useEffect } from "react";
 import DoubtList from "../components/DoubtList";
-import Overlay from "../components/Overlay";
+import Overlay from "../components/OverlayPost";
 import FilterPanel from "../components/FilterPanel";
 
 const settings = require('../settings');
