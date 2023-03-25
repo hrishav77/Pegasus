@@ -21,17 +21,18 @@ export default function Navbar(props) {
     nav("/login");
   };
   const [isSmallScreen]=useMediaQuery("(max-width:900px)")
+ 
   return (
     <Flex className={styles.navbar} as="nav" p="10px" alignItems="center" bg="#334756" color="white" width="100%">
       {isSmallScreen && <LeftHamburg roomSwitch={props.roomSwitch}/>}
-      <Heading className={styles.appName}>{settings.appName}</Heading>
+    <Heading className={styles.appName}>{settings.appName}</Heading>
       <Text fontSize="3xl" fontFamily="'Orbitron', sans-serif" fontWeight="400" >{props.room}</Text>
       <HStack className={styles.buttonBar} spacing="10px">
         <Button bg="#00141B" borderRadius="10px"  _hover={{ bg: '#5b6166'}} onClick={logout}>
           logout
         </Button>
        
-        {isSmallScreen?<Hamburger/>: <div></div> }
+        {isSmallScreen && <Hamburger/> }
       </HStack>
     </Flex>
   )
