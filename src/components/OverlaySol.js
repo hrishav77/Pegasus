@@ -26,7 +26,7 @@ import {
       const data={
             //give the data 
       };
-      props.setDoubts(data);
+      props.postSolution(data);
     }
     return (
       <>

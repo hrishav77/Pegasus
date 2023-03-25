@@ -17,7 +17,11 @@ const SolutionPage = () => {
 
     const roomSwitch = (x) => {
         nav("/doubtpage/?room="+x);
-    }
+    };
+
+    const solutionHandler = () => {
+        
+    };
 
     return ( <div className="solutionpage">
         <div className={styles.content}>
@@ -31,7 +35,7 @@ const SolutionPage = () => {
                 <div className={styles.rightsidebarsol}>
                     <Flex mt="10px" mr="5px">
                         <Spacer/>
-                    <OverlaySol/>
+                    <OverlaySol postSolution={solutionHandler}/>
                     </Flex>
                     
                 </div>

@@ -70,7 +70,7 @@ const DoubtPage = () => {
         },
     ]);
      
-    const doubthandler=(info)=>{ 
+    const doubtHandler=(info)=>{ 
       setDoubts(doubts=>{
       return([info,...doubts])
       })
@@ -125,7 +125,7 @@ const DoubtPage = () => {
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
-                        <Overlay postDoubt={doubthandler} username={username}/>
+                        <Overlay postDoubt={doubtHandler} username={username}/>
                         
                     </div>
                 </div>
