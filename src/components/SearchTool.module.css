@@ -1,9 +1,9 @@
 .searchbar {
     border: 0;
-    font-weight: 600;
-    font-family: Quicksand;
+    font-weight: 300;
+    font-family: sans-serif;
     font-size: 14px;
-    background-color: #72A4D2;
+    background-color: #7caddcab;
     flex: 1;
     border-radius: 5px;
     overflow: hidden;

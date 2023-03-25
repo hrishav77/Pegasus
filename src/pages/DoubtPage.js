@@ -9,6 +9,7 @@ import DoubtList from "../components/DoubtList";
 import Overlay from "../components/OverlayPost";
 import FilterPanel from "../components/FilterPanel";
 import Hamburger from "../components/Hamburger";
+import { Flex } from "@chakra-ui/react";
 
 const settings = require('../settings');
 
@@ -23,8 +24,8 @@ const DoubtPage = () => {
           doubtID: 25,
           topic:"microelectronics",
           subtopic:"diff amp",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
+          title: "differential applifier",
+          body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
           userID: "Amal",
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
@@ -114,14 +115,14 @@ const DoubtPage = () => {
     }, [currentRoom]);
 
     return (
-        <div className="doubtpage">
-            <div className={styles.content}>
+        <Flex className="doubtpage">
+            <Flex  className={styles.content}>
                 <Navbar room={currentRoom.name}/>
                 <div className={styles.doubtpagecontent}>
-                    <div className={styles.leftsidebar}>
+                    <Flex className={styles.leftsidebar}>
                         <AccountPanel username={username}/>
                         <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
-                    </div>
+                    </Flex>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
                         <DoubtList doubts={doubts}/>
@@ -132,8 +133,8 @@ const DoubtPage = () => {
                         
                     </div>
                 </div>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
  

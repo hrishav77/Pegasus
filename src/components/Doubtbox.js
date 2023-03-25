@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Box from './Box'
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Bona+Nova&display=swap');
+</style>
 
 
 let curr_dt = new Date()
@@ -20,13 +23,13 @@ const starredButton=()=>{
   
   return (
     <Box w="100%" h="fit-content">
-        <Flex fontSize="2xl">
+        <Flex fontSize="sm" font-family=" 'Bona Nova', serif">
         {props.userID}
         <Spacer/>
-        <Text fontSize="lg">{date}</Text>
+        <Text fontSize="sm">{date}</Text>
         </Flex>  
-    <Text fontSize="xl" fontWeight="600">{props.title}</Text>
-    <Text>{props.body}</Text>
+    <Text fontSize="xl" fontWeight="600" font-family=" 'Bona Nova', serif" mb="5px">{props.title}</Text>
+    <Text fontSize="lg">{props.body}</Text>
      <Flex>
 <Button borderRadius="10px" variant="outline" ><i class="fi fi-rr-star" style={{backgroundColor:isStarred?"goldenrod":""}} onClick={starredButton}></i></Button>
       <Button borderRadius="10px" variant="outline" ml="10px">

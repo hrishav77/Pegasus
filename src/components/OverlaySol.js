@@ -32,7 +32,7 @@ import {
       <>
          
         <Button onClick={onOpen} >
-            Post your solutions
+           <div className='but'>Post your solutions</div> 
         </Button>
   
         <Modal isOpen={isOpen} onClose={onClose}>
