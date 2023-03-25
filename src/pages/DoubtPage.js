@@ -9,6 +9,7 @@ import DoubtList from "../components/DoubtList";
 import Overlay from "../components/OverlayPost";
 import FilterPanel from "../components/FilterPanel";
 import Hamburger from "../components/Hamburger";
+import { Flex } from "@chakra-ui/react";
 
 const settings = require('../settings');
 
@@ -23,8 +24,8 @@ const DoubtPage = () => {
           doubtID: 25,
           topic:"microelectronics",
           subtopic:"diff amp",
-          title: "TITLEEIJJEI",
-          body: "BODYIHIDSSHO",
+          title: "differential applifier",
+          body: "when we need to find current in common mode of differential amplifier do we divide the current equally",
           userID: "Amal",
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
@@ -88,7 +89,7 @@ const DoubtPage = () => {
     };
 
     const roomSwitch = (x) => {
-      nav("/doubtpage/?room="+x);
+      nav("/doubtpage?room="+x);
       let obj = rooms.find(o => o.roomID === x);
       setCurrentRoom(obj);
     }
@@ -97,7 +98,7 @@ const DoubtPage = () => {
       if(!settings.isLoggedIn()) {
         nav("/");
       }
-      setUsername(settings.getUsername);
+      setUsername(settings.getUsername());
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has("room")) {
         const x = parseInt(urlParams.get("room"));
@@ -114,17 +115,17 @@ const DoubtPage = () => {
     }, [currentRoom]);
 
     return (
-        <div className="doubtpage">
-            <div className={styles.content}>
+        <Flex className="doubtpage">
+            <Flex  className={styles.content}>
                 <Navbar room={currentRoom.name}/>
                 <div className={styles.doubtpagecontent}>
-                    <div className={styles.leftsidebar}>
+                    <Flex className={styles.leftsidebar}>
                         <AccountPanel username={username}/>
                         <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
-                    </div>
+                    </Flex>
                     <div className={styles.centresidebar}>
                         <SearchTool/>
-                        <DoubtList doubts={doubts}/>
+                        <DoubtList doubts={doubts} roomID={currentRoom.roomID} buttonBarVisible={true}/>
                     </div>
                     <div className={styles.rightsidebar}>
                         <FilterPanel onFilter={applyFilter}/>
@@ -132,8 +133,8 @@ const DoubtPage = () => {
                         
                     </div>
                 </div>
-            </div>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
  

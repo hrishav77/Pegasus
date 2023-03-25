@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import AccountPanel from "../components/AccountPanel";
 import Navbar from "../components/Navbar"
-import Overlay from "../components/OverlayPost";
 import OverlaySol from"../components/OverlaySol"
 import RoomPanel from "../components/RoomPanel";
 import DoubtList from "../components/DoubtList";
@@ -30,6 +29,7 @@ const SolutionPage = () => {
         if(!settings.isLoggedIn()) {
             nav("/");
         }
+        setUsername(settings.getUsername());
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("room") && urlParams.has("doubt")) {
             const x = parseInt(urlParams.get("room"));
