@@ -52,15 +52,20 @@ router.post('/getroomdoubts', async (req, res) =>{
         const doubts = await Doubt.find({roomID});
         const sDoubts = starredDoubts.filter((doubt) => {
             return doubt.roomID == roomID;
-        })
+        });
+        const result = [];
         for(let i = 0; i < doubts.length; i++){
+            let x = doubts[i].toObject();
             if(sDoubts.find(doubt => doubt.doubtID == doubts[i].doubtID)){
-                doubts[i].starred = true;
+                x.starred = true;
+                console.log("HI");
             }else{
-                doubts[i].starred = false;
+                x.starred = false;
+                console.log(doubts[i]);
             }
+            result.push(x);
         }
-        res.status(200).json(doubts);
+        res.status(200).json(result);
          
        
     }catch (error){
