@@ -20,7 +20,7 @@ router.post('/starreddoubts', async (req, res) => {
             }
             let doubts =[]
             for (let i = 0; i < x.length; i++){
-                let user2 = await User.findOne({userID: doubt[i].userID});
+                let user2 = await User.findOne({userID: x[i].userID});
                 let y = x[i].toObject();
                 y.username = user2.username;
                 doubts.push(y);
@@ -38,7 +38,7 @@ router.post('/starreddoubts', async (req, res) => {
                 z.push(doubt);
             }
             let doubts =[]
-            for (let i = 0; i < doubt.length; i++){
+            for (let i = 0; i < z.length; i++){
                 let user3 = await User.findOne({userID: z[i].userID});
                 let a = z[i].toObject();
                 a.username = user3.username;
