@@ -64,7 +64,7 @@ const AuthWidget = () => {
       <img
         className={styles.companylogoIcon}
         alt=""
-        src="../companylogo@2x.png"
+        src="../logo@2x.png"
       />
       <b className={styles.signUp}>{isSignUp ? "Sign Up" : "Login"}</b>
       <div className={styles.usernamebox}>
