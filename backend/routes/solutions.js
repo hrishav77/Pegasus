@@ -1,6 +1,9 @@
 const express = require('express');
 const Solution = require('../models/solutionModel');
 const router = express.Router();
+const requireAuth =require('../middleware/requireAuth')
+
+router.use(requireAuth);
 
 router.get('/:roomID/:doubtID', async (req, res) => {
     const roomID = req.params.roomID;

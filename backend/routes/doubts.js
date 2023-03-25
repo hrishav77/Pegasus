@@ -2,10 +2,13 @@ const express = require('express');
 const Doubt = require('../models/doubtModel');
 const User = require('../models/userModel');  
 const router = express.Router();
+const requireAuth =require('../middleware/requireAuth')
 
-router.get('/starreddoubts/:username', async (req, res) => {
+router.use(requireAuth);
+
+router.get('/starreddoubts', async (req, res) => {
     //get the starred doubts of a particular room for a particular user
-    const username = req.params.username;
+    const username = req.body.username;
     const user = await User.findOne({username});
     const roomID = req.body.roomID;
     try{
