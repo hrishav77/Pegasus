@@ -11,10 +11,58 @@ import HelpBox from "../components/HelpBox";
 const AccountPage = () => {
     const nav = useNavigate();
     const [rooms, setRooms] = useState([{roomID: 1, name: "CS"}, {roomID: 2, name: "Electronics"}]);
+    const [yourDoubts, setYourDoubts] = useState([
+        {
+          doubtID: 25,
+          topic:"microelectronics",
+          subtopic:"diff amp",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        }
+      ]);
+      const [starredDoubts, setDoubts] = useState([
+        {
+          doubtID: 25,
+          topic:"microelectronics",
+          subtopic:"diff amp",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        },
+        {
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
+          title: "TITLEEIJJEI",
+          body: "BODYIHIDSSHO",
+          userID: "Amal",
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
+        }
+    ]);
 
     const roomSwitch = (x) => {
         nav("/doubtpage/?room="+x);
     }
+
+    useEffect(() => {
+
+    }, []);
 
     return ( <div className="accountpage">
         <div className={styles.content}>
@@ -25,7 +73,7 @@ const AccountPage = () => {
                     <RoomPanel rooms={rooms} onSwitchRoom={roomSwitch}/>
                 </div>
                 <div className={styles.centresidebar}>
-                    <DoubtTabs/>
+                    <DoubtTabs yourDoubts={yourDoubts} starredDoubts={starredDoubts}/>
                 </div>
                 <div className={styles.rightsidebar}>
                     {/* <FilterPanel/> */}
