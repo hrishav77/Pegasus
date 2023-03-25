@@ -27,10 +27,17 @@ const starredButton=()=>{
         </Flex>  
     <Text fontSize="xl" fontWeight="600">{props.title}</Text>
     <Text>{props.body}</Text>
-    <Button borderRadius="10px" variant="outline" ><i class="fi fi-rr-star" style={{backgroundColor:isStarred?"goldenrod":""}} onClick={starredButton}></i></Button>
-    <Button borderRadius="10px" variant="outline" ml="10px">
+     <Flex>
+<Button borderRadius="10px" variant="outline" ><i class="fi fi-rr-star" style={{backgroundColor:isStarred?"goldenrod":""}} onClick={starredButton}></i></Button>
+      <Button borderRadius="10px" variant="outline" ml="10px">
       <Link to="/solutionpage">Solutions</Link>
       </Button>
+      <Spacer/>
+      <span style={{margin:"5px",textAlign:"right"}}>Topic:{props.topic}</span> <span style={{margin:"5px",textAlign:"right"}}>Subtopic:{props.subtopic}</span> 
+
+    </Flex>
+    
+      
     </Box>
   )
 }

@@ -8,7 +8,7 @@ export default function DoubtList(props) {
    
     <div className='doubtList'>
       {props.doubts.map((doubt)=>(
-          <div className='singleDoubt' key={doubt.doubtID}><Doubtbox title={doubt.title} body={doubt.body} userID={doubt.userID}/></div>
+          <div className='singleDoubt' key={doubt.doubtID}><Doubtbox title={doubt.title} body={doubt.body} userID={doubt.userID} topic={doubt.topic} subtopic={doubt.subtopic}/></div>
         ))
       }
     </div>

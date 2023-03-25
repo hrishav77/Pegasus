@@ -18,6 +18,8 @@ const DoubtPage = () => {
     const [doubts, setDoubts] = useState([
         {
           doubtID: 25,
+          topic:"microelectronics",
+          subtopic:"diff amp",
           title: "TITLEEIJJEI",
           body: "BODYIHIDSSHO",
           userID: "Amal",
@@ -25,10 +27,12 @@ const DoubtPage = () => {
           doubtDetail: "DETAIL DETAILS"
         },
         {
-          doubtID: 22,
+          doubtID: 21,
+          topic:"microprocc",
+          subtopic:"mod7",
           title: "TITLEEIJJEI",
           body: "BODYIHIDSSHO",
-          userID: "aryan",
+          userID: "Amal",
           date: "Today",
           doubtDetail: "DETAIL DETAILS"
         }

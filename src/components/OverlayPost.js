@@ -33,12 +33,14 @@ import {
     }
     const postHandler=(event)=>{
       const data={
-            doubtID: 23,
-            title: title,
-            body: body,
-            userID: props.username,
-            date: "Today",
-            doubtDetail: "DETAIL DETAILS"
+            ddoubtID: 21,
+          topic:topic,
+          subtopic:subTopic,
+          title: title,
+          body: body,
+          userID: props.username,
+          date: "Today",
+          doubtDetail: "DETAIL DETAILS"
       };
       props.setDoubts(data);
     }
